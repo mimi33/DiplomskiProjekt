@@ -3,14 +3,18 @@ Diplomski Projekt
 Opis programskog dijela diplomskog rada.
 
 ### Zadatak: ###
-Zadatak diplomskog rada je implementirati genetski algoritam radu svrhu kratkoročnog predviđanja potrošnje električne energije. Ideja je napraviti 24 prediktora potrošnje, po jedan za svaki sat u danu.
-
+Zadatak diplomskog rada je implementirati genetski algoritam čija je svrha kratkoročno predviđanje potrošnje električne energije. Ideja je napraviti 24 prediktora potrošnje, po jedan za svaki sat u danu.
 
 ## Klase ##
 U daljenjem tekstu slijedi opis svakog dijela genetskog programiranja.
 
 ### GP ###
 Klasa `GP` je zadužena za konfiguriranje operatora i parametara, kao i za poziv svih važnijih dijelova algoritma, kao što su klase Algoritam ili provjeravanje uvjeta završavanja algoritma. Također je zadužena za zapisivanje u log datoteku.
+
+GP se može pokretati na više načina:
+
+- Crossvalidation ili obični GP
+- jednom ili batch
 
 ### Algoritam ###
 Klasa `Algoritam` je glavna klasa koja je zadužena za iteriranje algoritma. Zadužena je za obavljanje svih operacija nad populacijom, kao što su selekcija, križanje i mutacija.
@@ -29,7 +33,7 @@ Trenutno implementirane evaluacije:
 - MAPE (Mean Absolute Percentage Error)
 
 ### Podaci ###
-Klasa `Podaci` se sastoji od podataka koji su podijeljeni na podatke za učenje, provjeru i evaluaciju. Podaci se učitaju na početku programa, no tijekom izvršavanja programa se može postaviti nad kojim podacima se radi evaluacija.
+Klasa `Podaci` se sastoji od podataka koji su podijeljeni na podatke za učenje, provjeru i evaluaciju. Podaci se učitaju na početku programa, no tijekom izvršavanja programa se može postaviti nad kojim podacima se radi evaluacija. Podaci za jedan GP su podaci u jednom određenom satu u danu.
 
 ### Križanje ###
 Klasa `Križanje` je apstraktna klasa koju se može implementirati bilo kojim operatorom križanja.
