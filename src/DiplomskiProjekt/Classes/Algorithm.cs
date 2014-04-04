@@ -5,11 +5,10 @@ namespace DiplomskiProjekt.Classes
 {
     abstract public class Algorithm
     {
-        public abstract void ReInicijaliziraj();
+        public abstract void ResetirajPopulaciju();
         public abstract void OdradiGeneraciju();
 
         protected Populacija Populacija;
-        public bool Zavrsi;
 
         public Jedinka NajboljaJedinka
         {
@@ -26,7 +25,7 @@ namespace DiplomskiProjekt.Classes
             _tournamentSize = velicinaTurnira;
         }
 
-        public override void ReInicijaliziraj()
+        public override void ResetirajPopulaciju()
         {
             Populacija = new Populacija(Populacija.BrojJedinki);
         }
@@ -66,14 +65,14 @@ namespace DiplomskiProjekt.Classes
                 var dijete1 = GP.MutationOp.Mutiraj(djeca.Item1);
                 var dijete2 = GP.MutationOp.Mutiraj(djeca.Item2);
 
-                GP.EvaluationOp.Evaluiraj(dijete1);
-                GP.EvaluationOp.Evaluiraj(dijete2);
+                GP.EvaluationOp.IzracunajGresku(dijete1);
+                GP.EvaluationOp.IzracunajGresku(dijete2);
 
                 if (dijete1.GreskaJedinke < dijete2.GreskaJedinke)
                     Populacija[najlosijaJedinka] = dijete1;
                 else
                     Populacija[najlosijaJedinka] = dijete2;
-                Populacija.NajboljaJedinka = Populacija[najlosijaJedinka];
+                //Populacija.NajboljaJedinka = Populacija[najlosijaJedinka];
             }
         }
     }

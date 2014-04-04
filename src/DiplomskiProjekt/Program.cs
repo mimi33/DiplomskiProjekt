@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace DiplomskiProjekt
 {
@@ -15,10 +18,12 @@ namespace DiplomskiProjekt
 
             RandomGenerator.SetSeedFromSystemTime();
 
-            GenetskoProgramiranje = new GP();
-
-            GenetskoProgramiranje.Pokreni();
-
+            for (var i = 0; i < 24; i++)
+            {
+                var gp = new GP(i);
+                gp.Pokreni();
+            }
+            Console.ReadKey();
         }
 
         /// <summary>

@@ -27,7 +27,7 @@ namespace DiplomskiProjekt.Classes
         [StringValue("Algorithm")]
         Algorithm,
         [StringValue("Log")]
-        Log
+        Log,
     }
 
     public static class StringEnum

@@ -8,84 +8,69 @@ namespace DiplomskiProjekt.Classes
     public abstract class Evaluation
     {
         private Podaci _podaci;
-        public DataSet DataSet;
+        public int FoldNaKojemuSeUci {get { return _podaci.FoldForTesting; }}
+        public int BrojVarijabli {get { return _podaci.PodaciZaUcenje.BrojVarijabli; }}
 
         public void UcitajDataSet(string filepath)
         {
-            Podaci.BrojPrethodnihMjerenja = 7;
-            Podaci.SatniInterval = 24;
-
             _podaci = new Podaci(filepath);
-            DataSet = _podaci.PodaciZaUcenje;
-            // todo - maknuti hardcoded vrijednosti
-            // todo - mijenjati dataset ovisno o potrebama
+            // todo - mijenjati dataset ovisno o potrebama i provjeriti dal je dobro
         }
 
-        public IList<double> IzračunajVrijednostiJedinke(Jedinka jedinka)
+        public IList<double> IzračunajVrijednostiJedinke(Jedinka jedinka, DataSet dataSet)
         {
-            var rezultatiJedinke = new List<double>(new double[_podaci.PodaciZaUcenje.BrojZapisa]);
+            var rezultatiJedinke = new List<double>(new double[dataSet.BrojZapisa]);
 
-            Parallel.For(0, _podaci.PodaciZaUcenje.Varijable.Count,
-                i => rezultatiJedinke[i] = jedinka.Izracunaj(_podaci.PodaciZaUcenje.Varijable[i]));
+            Parallel.For(0, dataSet.Varijable.Count,
+                i => rezultatiJedinke[i] = jedinka.Izracunaj(dataSet.Varijable[i]));
             return rezultatiJedinke;
         }
 
         public bool SlijedeciPodaciZaUcenje()
         {
             var gotovo = !_podaci.PromijeniFold();
-            DataSet = _podaci.PodaciZaUcenje;
             return gotovo;
         }
 
-        public void VratiUPodatkeZaUcenje()
+        public double IzracunajGresku(Jedinka jedinka)
         {
-            DataSet = _podaci.PodaciZaUcenje;
+            return jedinka.GreskaJedinke = Greska(IzračunajVrijednostiJedinke(jedinka, _podaci.PodaciZaUcenje), _podaci.PodaciZaUcenje.Rezultati);
         }
 
-        public void PromijeniUPodatkeZaProvjeru()
+        public double Validiraj(Jedinka jedinka)
         {
-            DataSet = _podaci.PodaciZaProvjeru;
+            return Greska(IzračunajVrijednostiJedinke(jedinka, _podaci.PodaciZaProvjeru), _podaci.PodaciZaProvjeru.Rezultati);
         }
 
-        public void PromijeniUPodatkeZaEvaluaciju()
+        public double Evaluiraj(Jedinka jedinka)
         {
-            DataSet = _podaci.PodaciZaEvaluaciju;
+            return jedinka.GreskaJedinke = Greska(IzračunajVrijednostiJedinke(jedinka, _podaci.PodaciZaEvaluaciju), _podaci.PodaciZaEvaluaciju.Rezultati);
         }
 
-        public int FoldNaKojemSeUci()
-        {
-            return _podaci.FoldForTesting;
-        }
-
-        public abstract double Evaluiraj(Jedinka jedinka);
-
-
+        public abstract double Greska(IEnumerable<double> rezultatiJedinke, IEnumerable<double> rezultatiPodataka);
     }
 
     public class MseEvaluation : Evaluation
     {
-        public override double Evaluiraj(Jedinka jedinka)
+        public override double Greska(IEnumerable<double> rezultatiJedinke, IEnumerable<double> rezultatiPodataka)
         {
-            // todo - koliko ima smisla spremati to u gresku jedinke ako imamo učenje,evaluaciju,testiranje...
-            return jedinka.GreskaJedinke = IzračunajVrijednostiJedinke(jedinka).Zip(DataSet.Rezultati, (o, f) => Math.Pow(o - f, 2)).Average();
+            return rezultatiJedinke.Zip(rezultatiPodataka, (o, f) => Math.Pow(o - f, 2)).Average();
         }
     }
 
     public class MaeEvaluation : Evaluation
     {
-        public override double Evaluiraj(Jedinka jedinka)
+        public override double Greska(IEnumerable<double> rezultatiJedinke, IEnumerable<double> rezultatiPodataka)
         {
-            // todo - koliko ima smisla spremati to u gresku jedinke ako imamo učenje,evaluaciju,testiranje...
-            return jedinka.GreskaJedinke = IzračunajVrijednostiJedinke(jedinka).Zip(DataSet.Rezultati, (o, f) => Math.Abs(o - f)).Average();
+            return rezultatiJedinke.Zip(rezultatiPodataka, (o, f) => Math.Abs(o - f)).Average();
         }
     }
 
     public class MapeEvaluation : Evaluation
     {
-        public override double Evaluiraj(Jedinka jedinka)
+        public override double Greska(IEnumerable<double> rezultatiJedinke, IEnumerable<double> rezultatiPodataka)
         {
-            // todo - koliko ima smisla spremati to u gresku jedinke ako imamo učenje,evaluaciju,testiranje...
-            return jedinka.GreskaJedinke = IzračunajVrijednostiJedinke(jedinka).Zip(DataSet.Rezultati, (o, f) => (1 - Math.Abs(o / f))).Average();
+            return rezultatiJedinke.Zip(rezultatiPodataka, (o, f) => (1 - Math.Abs(o / f))).Average();
         }
     }
 }

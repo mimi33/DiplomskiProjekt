@@ -99,12 +99,12 @@ namespace DiplomskiProjekt.Classes
             // gradnja stabla iz niza cvorova
             var j = new Jedinka {Korjen = cvorovi[0]};
             cvorovi.RemoveAt(0);
-            DodajDijecu(j.Korjen, cvorovi);
+            DodajDjecu(j.Korjen, cvorovi);
 
             return j;
         }
 
-        static void DodajDijecu(Cvor cvor, List<Cvor> listaCvors)
+        private static void DodajDjecu(Cvor cvor, List<Cvor> listaCvors)
         {
             // todo provijeriti deserijalizaciju
             if (cvor.BrojDjece == 0 || cvor.BrojDjece == cvor.Djeca.Count)
@@ -116,7 +116,7 @@ namespace DiplomskiProjekt.Classes
                 listaCvors.RemoveAt(0);
                 dijete.Roditelj = cvor;
                 cvor.Djeca.Add(dijete);
-                DodajDijecu(dijete, listaCvors);
+                DodajDjecu(dijete, listaCvors);
             }
             
         }

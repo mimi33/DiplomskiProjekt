@@ -8,9 +8,9 @@ namespace DiplomskiProjekt.Classes
 {
     public class Podaci
     {
-        public static int SatniInterval;
         public static int BrojPrethodnihMjerenja;
-        public static int BrojPodatakaPoSkupu;
+        public static int BrojPodatakaPoFoldu;
+        //public static List<string> ImenaVarijabli;
 
         public int FoldForTesting { get; private set; }
         private readonly List<DataSet> _folds;
@@ -22,66 +22,68 @@ namespace DiplomskiProjekt.Classes
         public Podaci(string filename)
         {
             var lines = File.ReadAllLines(filename).ToList();
-            //var names = lines[0].Split(';');
-            lines.RemoveAt(0);
+            //ImenaVarijabli = lines[0].Split(';').ToList();
+            //lines.RemoveAt(0); //ovo treba ako ima header
             var vrijednostiPoSatima = lines.Select(line => line.Split(';').Select(x => 
                 double.Parse(x, CultureInfo.InvariantCulture.NumberFormat)).ToList()).ToList();
 
-            var varijable = new List<List<double>>();
+            var listaVarijabli = new List<List<double>>();
             var rezultati = new List<double>();
 
-            for (var i = SatniInterval * BrojPrethodnihMjerenja; i < vrijednostiPoSatima.Count - 1; i++)
+            for (var i = BrojPrethodnihMjerenja; i < vrijednostiPoSatima.Count - 1; i++)
             {
-                // todo maknuti 4, staviti oznaku indexiranja pravog stupca, ili nek uvijek bude 0
                 var primjer = new List<double>();
-                for (var j = 1; j <= BrojPrethodnihMjerenja; j++)
-                    primjer.Add(vrijednostiPoSatima[i - SatniInterval * j][4]);
+                for (var j = 0; j < BrojPrethodnihMjerenja; j++)
+                    primjer.Add(vrijednostiPoSatima[i - BrojPrethodnihMjerenja + j].Last()); //zadnja vrijednost mora biti potrosnja
 
-                //primjer.AddRange(vrijednostiPoSatima[i]); -> ne smije biti trenutna potrosnja
+                primjer.AddRange(vrijednostiPoSatima[i].Take(vrijednostiPoSatima[i].Count - 1)); //ne smije biti trenutna potrosnja
 
-                if (primjer.Any(double.IsNaN) || double.IsNaN(vrijednostiPoSatima[i][4])) 
+                if (primjer.Any(double.IsNaN) || double.IsNaN(vrijednostiPoSatima[i].Last())) 
                     continue;
 
-                varijable.Add(primjer);
-                rezultati.Add(vrijednostiPoSatima[i][4]);
+                listaVarijabli.Add(primjer);
+                rezultati.Add(vrijednostiPoSatima[i].Last());
             }
 
             // posložiti te vrijednosti u datasetove
-            if (BrojPodatakaPoSkupu * 6 > varijable.Count)
-                throw new Exception();
+            if (BrojPodatakaPoFoldu*6 > listaVarijabli.Count)
+            {
+                BrojPodatakaPoFoldu = (int) Math.Floor(listaVarijabli.Count/(double) 6);
+                Console.WriteLine("Broj podataka po foldu je prevelik. Novi broj je " + BrojPodatakaPoFoldu);
+            }
 
             _folds = new List<DataSet>
             {
                 new DataSet
                 {
-                    Rezultati = rezultati.GetRange(0, BrojPodatakaPoSkupu),
-                    Varijable = varijable.GetRange(0, BrojPodatakaPoSkupu)
+                    Rezultati = rezultati.GetRange(0, BrojPodatakaPoFoldu),
+                    Varijable = listaVarijabli.GetRange(0, BrojPodatakaPoFoldu)
                 },
                 new DataSet
                 {
-                    Rezultati = rezultati.GetRange(BrojPodatakaPoSkupu, BrojPodatakaPoSkupu),
-                    Varijable = varijable.GetRange(BrojPodatakaPoSkupu, BrojPodatakaPoSkupu)
+                    Rezultati = rezultati.GetRange(BrojPodatakaPoFoldu, BrojPodatakaPoFoldu),
+                    Varijable = listaVarijabli.GetRange(BrojPodatakaPoFoldu, BrojPodatakaPoFoldu)
                 },
                 new DataSet
                 {
-                    Rezultati = rezultati.GetRange(BrojPodatakaPoSkupu*2, BrojPodatakaPoSkupu),
-                    Varijable = varijable.GetRange(BrojPodatakaPoSkupu*2, BrojPodatakaPoSkupu)
+                    Rezultati = rezultati.GetRange(BrojPodatakaPoFoldu*2, BrojPodatakaPoFoldu),
+                    Varijable = listaVarijabli.GetRange(BrojPodatakaPoFoldu*2, BrojPodatakaPoFoldu)
                 },
                 new DataSet
                 {
-                    Rezultati = rezultati.GetRange(BrojPodatakaPoSkupu*3, BrojPodatakaPoSkupu),
-                    Varijable = varijable.GetRange(BrojPodatakaPoSkupu*3, BrojPodatakaPoSkupu)
+                    Rezultati = rezultati.GetRange(BrojPodatakaPoFoldu*3, BrojPodatakaPoFoldu),
+                    Varijable = listaVarijabli.GetRange(BrojPodatakaPoFoldu*3, BrojPodatakaPoFoldu)
                 },
                 new DataSet
                 {
-                    Rezultati = rezultati.GetRange(BrojPodatakaPoSkupu*4, BrojPodatakaPoSkupu),
-                    Varijable = varijable.GetRange(BrojPodatakaPoSkupu*4, BrojPodatakaPoSkupu)
+                    Rezultati = rezultati.GetRange(BrojPodatakaPoFoldu*4, BrojPodatakaPoFoldu),
+                    Varijable = listaVarijabli.GetRange(BrojPodatakaPoFoldu*4, BrojPodatakaPoFoldu)
                 }
             };
             var evaluation = new DataSet
             {
-                Varijable = varijable.GetRange(BrojPodatakaPoSkupu*5, BrojPodatakaPoSkupu),
-                Rezultati = rezultati.GetRange(BrojPodatakaPoSkupu*5, BrojPodatakaPoSkupu)
+                Varijable = listaVarijabli.GetRange(BrojPodatakaPoFoldu*5, BrojPodatakaPoFoldu),
+                Rezultati = rezultati.GetRange(BrojPodatakaPoFoldu*5, BrojPodatakaPoFoldu)
             };
 
             FoldForTesting = 0;
@@ -98,9 +100,11 @@ namespace DiplomskiProjekt.Classes
         public bool PromijeniFold()
         {
             FoldForTesting++;
+            var nijeGotovo = true;
             if (FoldForTesting >= 5)
             {
-                return false;
+                nijeGotovo = false;
+                FoldForTesting = 0;
             }
             PodaciZaUcenje = new DataSet();
             foreach (var fold in _folds.Where((ds, i) => i != FoldForTesting))
@@ -109,7 +113,7 @@ namespace DiplomskiProjekt.Classes
                 PodaciZaUcenje.Rezultati = PodaciZaUcenje.Rezultati.Concat(fold.Rezultati).ToList();
             }
             PodaciZaProvjeru = _folds[FoldForTesting];
-            return true;
+            return nijeGotovo;
         }
     }
 

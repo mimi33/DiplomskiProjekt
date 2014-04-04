@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
+using System.Globalization;
 using System.Linq;
 using System.Xml.Linq;
 
@@ -8,12 +8,13 @@ namespace DiplomskiProjekt.Classes
 {
     public class GP
     {
+        private readonly int _id;
         private const string XmlPath = "Config.xml";
-        private string _logPath = "log.txt";
-        private const string PotrosnjaPath = "potrosnja.csv";
+        private string _logPath;
 
         public int Iteracija;
         private bool _crossvalidation;
+        private int _batchNo;
 
         public static bool Zavrsi;
         public static Mutation MutationOp;
@@ -24,16 +25,15 @@ namespace DiplomskiProjekt.Classes
 
         public static int GenerationFrequencyLogging;
         
-        public  GP()
+        public GP(int id)
         {
-            // O.o -> ovo bi trebalo cistiti datoteku na pocetku ako postoju.
-            new StreamWriter(_logPath, false).Close();
+            _id = id;
 
-            XDocument configDocument = XDocument.Load(XmlPath);
-            foreach (string node in Enum.GetNames(typeof(NodeType)))
+            var configDocument = XDocument.Load(XmlPath);
+            foreach (var node in Enum.GetNames(typeof(NodeType)))
             {
                 // uvijek vraća samo prvi node sa zadanim nazivom, ako ga ima
-                XElement xe = configDocument.Descendants(node).FirstOrDefault();
+                var xe = configDocument.Descendants(node).FirstOrDefault();
                 if (xe != null)
                 {
                     InicijalizirajKomponentu(xe);
@@ -47,74 +47,102 @@ namespace DiplomskiProjekt.Classes
 
         public void Pokreni()
         {
-            var populacijaNajboljih = new Populacija();
-            bool zavrsenoUcenje;
-            
-            do
+            if (_batchNo == -1 || _batchNo == 1)
             {
-                if (_crossvalidation)
-                {
-                    Algorithm.ReInicijaliziraj();
-                    Zavrsi = false;
-                    WriteToLog(EvaluationOp.FoldNaKojemSeUci() + ". fold");
-                }
-                for (Iteracija = 0; !Zavrsi; Iteracija++)
-                {
-                    Algorithm.OdradiGeneraciju();
-                    if (Iteracija!= 0 && Iteracija % GenerationFrequencyLogging == 0)
-                        WriteToLog(Algorithm.NajboljaJedinka, true);
+                var log = new XDocument(new XElement("Log"));
+                log.Save(_logPath);
 
-                    TerminationConditions.ForEach(t => t.ConditionMet(this));
+                if (_crossvalidation)
+                    PokreniCrossValidation();
+                else
+                    Iteriraj();
+            }
+            else
+            {
+                var originalLogPath = _logPath;
+                for (var batch = 1; batch <= _batchNo; batch++)
+                {
+                    // dodavanje batch postfixa na logpath
+                    var place = originalLogPath.LastIndexOf(".", StringComparison.Ordinal);
+                    _logPath = originalLogPath.Remove(place, 1).Insert(place, "-" + batch + ".");
+
+                    new XDocument(new XElement("Log")).Save(_logPath); //kreiranje xml datoteke
+
+                    if (_crossvalidation)
+                        PokreniCrossValidation();
+                    else
+                    {
+                        Algorithm.ResetirajPopulaciju();
+                        Iteriraj();
+                    }
+                    _logPath = originalLogPath;
                 }
+            }
+        }
+
+        private void Iteriraj()
+        {
+            for (Iteracija = 0; !Zavrsi; Iteracija++)
+            {
+                Algorithm.OdradiGeneraciju();
+                if (Iteracija != 0 && Iteracija % GenerationFrequencyLogging == 0)
+                    WriteToLog(Algorithm.NajboljaJedinka, true);
+
+                TerminationConditions.ForEach(t => t.ConditionMet(this));
+            }
+        }
+
+        private void PokreniCrossValidation()
+        {
+            var populacijaNajboljih = new Populacija();
+            var zavrsenoUcenje = false;
+
+            while (!zavrsenoUcenje)
+            {
+                Algorithm.ResetirajPopulaciju();
+                Zavrsi = false;
+                WriteToLog((EvaluationOp.FoldNaKojemuSeUci + 1) + ". fold");
+
+                Iteriraj();
 
                 populacijaNajboljih.Add(Algorithm.NajboljaJedinka.Kopiraj());
                 zavrsenoUcenje = EvaluationOp.SlijedeciPodaciZaUcenje();
-            }while (_crossvalidation && !zavrsenoUcenje);
-
-            if (_crossvalidation)
-            {
-                EvaluationOp.PromijeniUPodatkeZaEvaluaciju();
-                WriteToLog("slijedi evaluacija najboljih jedinki na evaluation set");
-                foreach (var jedinka in populacijaNajboljih)
-                {
-                    EvaluationOp.Evaluiraj(jedinka);
-                    WriteToLog(jedinka, false);
-                }
             }
-           
-            Console.ReadKey();
-            
+
+            WriteToLog("slijedi evaluacija najboljih jedinki na evaluation set");
+            foreach (var jedinka in populacijaNajboljih)
+            {
+                EvaluationOp.Evaluiraj(jedinka);
+                WriteToLog(jedinka, false);
+            }
         }
 
         void WriteToLog(Jedinka jedinka, bool validation)
         {
-            
-            var writer = new StreamWriter(_logPath, true);
+            var log = XDocument.Load(_logPath);
             var zapis = jedinka.Serijaliziraj();       
 
             if (validation)
             {
                 zapis.Add(new XAttribute("iteracija", Iteracija));
-                EvaluationOp.PromijeniUPodatkeZaProvjeru();
-                zapis.Add(new XAttribute("validationError", Math.Round(EvaluationOp.Evaluiraj(jedinka), 4)));
-                EvaluationOp.VratiUPodatkeZaUcenje();
-                EvaluationOp.Evaluiraj(jedinka);
+                zapis.Add(new XAttribute("validationError", Math.Round(EvaluationOp.Validiraj(jedinka), 4)));
             }
 
-            writer.WriteLine(zapis);
-            writer.Close();
+            if (log.Root == null)
+                return;
+            log.Root.Elements().Last().Add(zapis);
+            log.Save(_logPath);
             Console.WriteLine("{0,5}: {1}", Iteracija, jedinka.GreskaJedinke);
         }
 
         void WriteToLog(string msg)
         {
-            var writer = new StreamWriter(_logPath, true);
-            var xelement = new XElement("Info");
-            xelement.Add(new XAttribute("info", msg));
-            writer.WriteLine(Environment.NewLine + xelement);
-            writer.Close();
+            var log = XDocument.Load(_logPath);
+            if (log.Root == null) 
+                return;
+            log.Root.Add(new XElement("Info", new XAttribute("msg", msg)));
+            log.Save(_logPath, SaveOptions.None);
         }
-
 
         /// <summary>
         /// Osnovna funkcija za učitavanje parametara iz xml datoteke.
@@ -130,14 +158,6 @@ namespace DiplomskiProjekt.Classes
                 case NodeType.Tree:
                     Jedinka.MaxDubina = (int?)djeca.FirstOrDefault(xe => xe.Name == "MaxDepth") ?? 8;
                     Jedinka.MinDubina = (int?)djeca.FirstOrDefault(xe => xe.Name == "MinDepth") ?? 3;
-
-                    //todo gdje ovo staviti?? ne bi smijelo biti veze na evOp
-                    Cvor.ZavrsniCvorovi = new List<Cvor> ();
-                    for (int i = 0; i < EvaluationOp.DataSet.BrojVarijabli; i++)
-                    {
-                        Cvor.ZavrsniCvorovi.Add(new Cvor(i));
-                        Cvor.ZavrsniCvorovi.Add(new Cvor(false));
-                    }
 
                     var funkcijskiCvorovi = (string) djeca.FirstOrDefault(xe => xe.Name == "FunctionSet");
                     if (funkcijskiCvorovi != null)
@@ -198,6 +218,8 @@ namespace DiplomskiProjekt.Classes
                             break;
                             // todo dodati za ostale mutacije
                     }
+                    MutationOp.ConstantMutationEnabled =
+                        (string) djeca.FirstOrDefault(xe => xe.Name == "ExtraConstantMutation") == "true";
                     break;
                 
                 case NodeType.Crossover:
@@ -212,7 +234,8 @@ namespace DiplomskiProjekt.Classes
                     break;
 
                 case NodeType.Evaluation:
-                    Podaci.BrojPodatakaPoSkupu = (int?)djeca.FirstOrDefault(xe => xe.Name == "FoldSize") ?? 20;
+                    Podaci.BrojPodatakaPoFoldu = (int?)djeca.FirstOrDefault(xe => xe.Name == "FoldSize") ?? 20;
+                    Podaci.BrojPrethodnihMjerenja = (int?)djeca.FirstOrDefault(xe => xe.Name == "PreviousLoads") ?? 7;
                     att = (string) djeca.FirstOrDefault(xe => xe.Name == "TrainEvaluator") ?? "MSE";
                     switch (att)
                     {
@@ -226,13 +249,28 @@ namespace DiplomskiProjekt.Classes
                             EvaluationOp = new MaeEvaluation();
                             break;
                     }
-                    EvaluationOp.UcitajDataSet(PotrosnjaPath);
+                    var potrosnjaPath =
+                        ((string) djeca.FirstOrDefault(xe => xe.Name == "DataPath") ?? "sat{ID}.txt").Replace("{ID}",
+                            _id.ToString(CultureInfo.InvariantCulture));
+                    EvaluationOp.UcitajDataSet(potrosnjaPath);
+
+                    //todo gdje ovo staviti?? ne bi smijelo biti veze na evOp
+                    Cvor.ZavrsniCvorovi = new List<Cvor>();
+                    for (var i = 0; i < EvaluationOp.BrojVarijabli; i++)
+                    {
+                        Cvor.ZavrsniCvorovi.Add(new Cvor(i));
+                        Cvor.ZavrsniCvorovi.Add(new Cvor(false));
+                    }
                     _crossvalidation = (bool?) djeca.FirstOrDefault(xe => xe.Name == "Crossvalidation") ?? false;
+                    
                     break;
 
                 case NodeType.Log:
                     GenerationFrequencyLogging = (int?) djeca.FirstOrDefault(xe => xe.Name == "GenerationFrequency") ?? 10;
-                    _logPath = (string) djeca.FirstOrDefault(xe => xe.Name == "FileName") ?? "log.txt";
+                    _logPath =
+                        ((string) djeca.FirstOrDefault(xe => xe.Name == "FileName") ?? "log{ID}.txt").Replace("{ID}",
+                            _id.ToString(CultureInfo.InvariantCulture));
+                    _batchNo = (int?) djeca.FirstOrDefault(xe => xe.Name == "BatchNo") ?? -1;
                     break;
 
                 default:
@@ -248,7 +286,7 @@ namespace DiplomskiProjekt.Classes
                     Jedinka.MaxDubina = 8;
                     Jedinka.MinDubina = 3;
                     Cvor.ZavrsniCvorovi = new List<Cvor> ();
-                    for (var i = 0; i < EvaluationOp.DataSet.BrojVarijabli; i++) //todo ovdje ne bi smijelo biti veze na evOp
+                    for (var i = 0; i < EvaluationOp.BrojVarijabli; i++) //todo ovdje ne bi smijelo biti veze na evOp
                         Cvor.ZavrsniCvorovi.Add(new Cvor(i));
 
                     Cvor.FunkcijskiCvorovi = new List<Cvor>
@@ -272,12 +310,15 @@ namespace DiplomskiProjekt.Classes
                     CrossoverOp = new SimpleCrossover();
                     break;
                 case NodeType.Evaluation:
-                    Podaci.BrojPodatakaPoSkupu = 20;
+                    Podaci.BrojPodatakaPoFoldu = 20;
                     EvaluationOp = new MseEvaluation();
-                    EvaluationOp.UcitajDataSet(PotrosnjaPath);
+                    EvaluationOp.UcitajDataSet("sat{ID}.txt".Replace("{ID}", _id.ToString(CultureInfo.InvariantCulture)));
+                    Podaci.BrojPrethodnihMjerenja = 7;
                     break;
                 case NodeType.Log:
+                    _logPath = "../../log" + _id.ToString(CultureInfo.InvariantCulture) + ".txt";
                     GenerationFrequencyLogging = 10;
+                    _batchNo = -1;
                     break;
                 default:
                     throw new Exception("nepoznato ime komponente");

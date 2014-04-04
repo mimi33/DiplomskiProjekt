@@ -47,9 +47,8 @@ namespace DiplomskiProjekt.Classes
             for (var i = 0; i < BrojJedinki; i++)
             {
                 var j = new Jedinka();
-                GP.EvaluationOp.Evaluiraj(j);
-                NajboljaJedinka = j;
-                _populacija.Add(j);
+                GP.EvaluationOp.IzracunajGresku(j);
+                Add(j);
             }
         }
 
@@ -71,27 +70,36 @@ namespace DiplomskiProjekt.Classes
         public void Insert(int index, Jedinka item)
         {
             _populacija.Insert(index, item);
+            NajboljaJedinka = item;
         }
 
         public void RemoveAt(int index)
         {
             _populacija.RemoveAt(index);
+            if (NajboljaJedinka == _populacija[index])
+                _najboljaJedinka = null;
         }
 
         public Jedinka this[int index]
         {
             get { return _populacija[index]; }
-            set { _populacija[index] = value; }
+            set
+            {
+                _populacija[index] = value;
+                NajboljaJedinka = value;
+            }
         }
 
         public void Add(Jedinka jedinka)
         {
             _populacija.Add(jedinka);
+            NajboljaJedinka = jedinka;
         }
 
         public void Clear()
         {
             _populacija.Clear();
+            _najboljaJedinka = null;
         }
 
         public bool Contains(Jedinka jedinka)
@@ -106,6 +114,8 @@ namespace DiplomskiProjekt.Classes
 
         public bool Remove(Jedinka item)
         {
+            if (item == NajboljaJedinka)
+                _najboljaJedinka = null;
             return _populacija.Remove(item);
         }
 
