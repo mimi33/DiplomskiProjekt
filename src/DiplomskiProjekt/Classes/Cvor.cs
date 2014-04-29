@@ -20,7 +20,9 @@ namespace DiplomskiProjekt.Classes
         [StringValue("log")]
         Log,
         [StringValue("sin")]
-        Sin
+        Sin,
+        [StringValue("ifRadniDan")]
+        IfRadniDan
     };
 
     public class Cvor
@@ -58,6 +60,7 @@ namespace DiplomskiProjekt.Classes
                 case TipFunkcije.Minus:
                 case TipFunkcije.Puta:
                 case TipFunkcije.Djeljeno:
+                case TipFunkcije.IfRadniDan:
                     BrojDjece = 2;
                     break;
                 case TipFunkcije.Log:
@@ -148,7 +151,8 @@ namespace DiplomskiProjekt.Classes
                 case TipCvora.Funkcija:
                     {
                         var s = new StringBuilder();
-                        s.Append(((TipFunkcije) Vrijednost).GetStringValue() + " ");
+                        var tip = ((TipFunkcije) Vrijednost);
+                        s.Append(tip.GetStringValue() + " ");
                         
                         if (!rekurzija) return s.ToString();
 
@@ -166,6 +170,7 @@ namespace DiplomskiProjekt.Classes
 
         public double RekurzivnoIzracunaj(List<double> varijable)
         {
+            if (varijable == null) throw new Exception();
             var a = (BrojDjece == 0) ? 0 : Djeca[0].RekurzivnoIzracunaj(varijable);
             var b = (BrojDjece <= 1) ? 0 : Djeca[1].RekurzivnoIzracunaj(varijable);
             switch (Tip)
@@ -179,6 +184,7 @@ namespace DiplomskiProjekt.Classes
                         case TipFunkcije.Puta: return a * b;
                         case TipFunkcije.Djeljeno: return (Math.Abs(b) < 1e-5) ? 0 : a / b;
                         case TipFunkcije.Sin: return Math.Sin(a);
+                        case TipFunkcije.IfRadniDan: return Math.Abs(varijable[0]) < 1e-5 ? a : b;
                         default: return 0;
                     }
                 case TipCvora.Konstanta:

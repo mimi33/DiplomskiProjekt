@@ -3,14 +3,14 @@
 		<PopulationSize>150</PopulationSize>
 		<ParamK>3</ParamK>
 		<Termination>
-			<Entry name="NumberOfGenerations">500</Entry>
+			<Entry name="NumberOfGenerations">50</Entry>
 		</Termination>
 	</Algorithm>
 	
 	<Tree>
 		<MaxDepth>8</MaxDepth>
 		<MinDepth>3</MinDepth>
-		<FunctionSet>+ - * /</FunctionSet>
+		<FunctionSet>+ - * / ifRadniDan</FunctionSet>
 	</Tree>
 
 	<Crossover name="SimpleCrx">
@@ -23,17 +23,16 @@
 	
 	<Evaluation>
 		<TrainEvaluator>MSE</TrainEvaluator>
-		<Crossvalidation>true</Crossvalidation>
-		<FoldSize>20</FoldSize>
+		<Crossvalidation>false</Crossvalidation>
 		<Data>
 			<DataPath>PoSatima/sat{ID}.txt</DataPath>
-			<PreviousLoads>7</PreviousLoads>
+			<PreviousLoads>5</PreviousLoads>
 		</Data>
 	</Evaluation>
 	
 	<Log>
 		<GenerationFrequency>10</GenerationFrequency>
-		<FileName>../../Logovi/log{ID}.txt</FileName>
-		<BatchNo>1</BatchNo>
+		<FileName>Logovi/log{ID}.txt</FileName>
+		<BatchNo>10</BatchNo>
 	</Log>
 </GeneticProgramming>

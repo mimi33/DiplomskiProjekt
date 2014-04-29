@@ -1,0 +1,38 @@
+﻿<GeneticProgramming>
+	<Algorithm name="SteadyStateTournament">
+		<PopulationSize>150</PopulationSize>
+		<ParamK>3</ParamK>
+		<Termination>
+			<Entry name="NumberOfGenerations">500</Entry>
+		</Termination>
+	</Algorithm>
+	
+	<Tree>
+		<MaxDepth>8</MaxDepth>
+		<MinDepth>3</MinDepth>
+		<FunctionSet>+ - * / ifRadniDan</FunctionSet>
+	</Tree>
+
+	<Crossover name="SimpleCrx">
+	</Crossover>
+	
+	<Mutation name="SimpleMut">
+		<MutFactor>0.01</MutFactor>
+		<ExtraConstantMutation>true</ExtraConstantMutation>
+	</Mutation>
+	
+	<Evaluation>
+		<TrainEvaluator>MSE</TrainEvaluator>
+		<Crossvalidation>false</Crossvalidation>
+		<Data>
+			<DataPath>PoSatima/sat{ID}.txt</DataPath>
+			<PreviousLoads>5</PreviousLoads>
+		</Data>
+	</Evaluation>
+	
+	<Log>
+		<GenerationFrequency>10</GenerationFrequency>
+		<FileName>Logovi/log{ID}.txt</FileName>
+		<BatchNo>10</BatchNo>
+	</Log>
+</GeneticProgramming>

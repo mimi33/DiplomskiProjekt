@@ -11,9 +11,9 @@ namespace DiplomskiProjekt.Classes
         public int FoldNaKojemuSeUci {get { return _podaci.FoldForTesting; }}
         public int BrojVarijabli {get { return _podaci.PodaciZaUcenje.BrojVarijabli; }}
 
-        public void UcitajDataSet(string filepath)
+        public void UcitajDataSet(string filepath, bool crx)
         {
-            _podaci = new Podaci(filepath);
+            _podaci = new Podaci(filepath, crx);
             // todo - mijenjati dataset ovisno o potrebama i provjeriti dal je dobro
         }
 

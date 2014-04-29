@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace DiplomskiProjekt
 {
@@ -9,10 +6,12 @@ namespace DiplomskiProjekt
 
     class Program
     {
-        public static GP GenetskoProgramiranje;
+        public static GP GenProg;
 
-        static void Main()
+        static void Main(string[] args)
         {
+            if (args.Length != 1)
+                throw new ArgumentException();
             Console.Clear();
             Console.CancelKeyPress += myHandler;
 
@@ -20,10 +19,9 @@ namespace DiplomskiProjekt
 
             for (var i = 0; i < 24; i++)
             {
-                var gp = new GP(i);
-                gp.Pokreni();
+                GenProg = new GP(i, args[0]);
+                GenProg.Pokreni();
             }
-            Console.ReadKey();
         }
 
         /// <summary>
@@ -31,7 +29,7 @@ namespace DiplomskiProjekt
         /// </summary>
         protected static void myHandler(object sender, ConsoleCancelEventArgs args)
         {
-            //GenetskoProgramiranje.Populacija.Zavrsi = true;
+            GP.Zavrsi = true;
             args.Cancel = true;
         }
     }

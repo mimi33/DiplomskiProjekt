@@ -19,11 +19,11 @@ namespace DiplomskiProjekt.Classes
         public DataSet PodaciZaProvjeru;
         public DataSet PodaciZaEvaluaciju;
 
-        public Podaci(string filename)
+        public Podaci(string filename, bool crx)
         {
             var lines = File.ReadAllLines(filename).ToList();
             //ImenaVarijabli = lines[0].Split(';').ToList();
-            //lines.RemoveAt(0); //ovo treba ako ima header
+            lines.RemoveAt(0); //ovo treba ako ima header
             var vrijednostiPoSatima = lines.Select(line => line.Split(';').Select(x => 
                 double.Parse(x, CultureInfo.InvariantCulture.NumberFormat)).ToList()).ToList();
 
@@ -45,56 +45,77 @@ namespace DiplomskiProjekt.Classes
                 rezultati.Add(vrijednostiPoSatima[i].Last());
             }
 
+            // shuffle podataka da ne utjece podatak kao sto je mjesec
+            var n = rezultati.Count;
+            while (n > 1)
+            {
+                n--;
+                var k = RandomGenerator.GetIntRange(0, n + 1);
+                var value = listaVarijabli[k];
+                listaVarijabli[k] = listaVarijabli[n];
+                listaVarijabli[n] = value;
+                var value2 = rezultati[k];
+                rezultati[k] = rezultati[n];
+                rezultati[n] = value2;
+            }  
+
             // posložiti te vrijednosti u datasetove
             if (BrojPodatakaPoFoldu*6 > listaVarijabli.Count)
             {
                 BrojPodatakaPoFoldu = (int) Math.Floor(listaVarijabli.Count/(double) 6);
                 Console.WriteLine("Broj podataka po foldu je prevelik. Novi broj je " + BrojPodatakaPoFoldu);
             }
-
-            _folds = new List<DataSet>
+            if (!crx)
             {
-                new DataSet
-                {
-                    Rezultati = rezultati.GetRange(0, BrojPodatakaPoFoldu),
-                    Varijable = listaVarijabli.GetRange(0, BrojPodatakaPoFoldu)
-                },
-                new DataSet
-                {
-                    Rezultati = rezultati.GetRange(BrojPodatakaPoFoldu, BrojPodatakaPoFoldu),
-                    Varijable = listaVarijabli.GetRange(BrojPodatakaPoFoldu, BrojPodatakaPoFoldu)
-                },
-                new DataSet
-                {
-                    Rezultati = rezultati.GetRange(BrojPodatakaPoFoldu*2, BrojPodatakaPoFoldu),
-                    Varijable = listaVarijabli.GetRange(BrojPodatakaPoFoldu*2, BrojPodatakaPoFoldu)
-                },
-                new DataSet
-                {
-                    Rezultati = rezultati.GetRange(BrojPodatakaPoFoldu*3, BrojPodatakaPoFoldu),
-                    Varijable = listaVarijabli.GetRange(BrojPodatakaPoFoldu*3, BrojPodatakaPoFoldu)
-                },
-                new DataSet
-                {
-                    Rezultati = rezultati.GetRange(BrojPodatakaPoFoldu*4, BrojPodatakaPoFoldu),
-                    Varijable = listaVarijabli.GetRange(BrojPodatakaPoFoldu*4, BrojPodatakaPoFoldu)
-                }
-            };
-            var evaluation = new DataSet
-            {
-                Varijable = listaVarijabli.GetRange(BrojPodatakaPoFoldu*5, BrojPodatakaPoFoldu),
-                Rezultati = rezultati.GetRange(BrojPodatakaPoFoldu*5, BrojPodatakaPoFoldu)
-            };
-
-            FoldForTesting = 0;
-            PodaciZaUcenje = new DataSet();
-            foreach (var fold in _folds.Where((ds,i)=>i != FoldForTesting))
-            {
-                PodaciZaUcenje.Varijable = PodaciZaUcenje.Varijable.Concat(fold.Varijable).ToList();
-                PodaciZaUcenje.Rezultati = PodaciZaUcenje.Rezultati.Concat(fold.Rezultati).ToList();
+                FoldForTesting = -1;
+                PodaciZaUcenje = new DataSet {Rezultati = rezultati, Varijable = listaVarijabli};
             }
-            PodaciZaProvjeru = _folds[FoldForTesting];
-            PodaciZaEvaluaciju = evaluation;
+            else
+            {
+                _folds = new List<DataSet>
+                {
+                    new DataSet
+                    {
+                        Rezultati = rezultati.GetRange(0, BrojPodatakaPoFoldu),
+                        Varijable = listaVarijabli.GetRange(0, BrojPodatakaPoFoldu)
+                    },
+                    new DataSet
+                    {
+                        Rezultati = rezultati.GetRange(BrojPodatakaPoFoldu, BrojPodatakaPoFoldu),
+                        Varijable = listaVarijabli.GetRange(BrojPodatakaPoFoldu, BrojPodatakaPoFoldu)
+                    },
+                    new DataSet
+                    {
+                        Rezultati = rezultati.GetRange(BrojPodatakaPoFoldu*2, BrojPodatakaPoFoldu),
+                        Varijable = listaVarijabli.GetRange(BrojPodatakaPoFoldu*2, BrojPodatakaPoFoldu)
+                    },
+                    new DataSet
+                    {
+                        Rezultati = rezultati.GetRange(BrojPodatakaPoFoldu*3, BrojPodatakaPoFoldu),
+                        Varijable = listaVarijabli.GetRange(BrojPodatakaPoFoldu*3, BrojPodatakaPoFoldu)
+                    },
+                    new DataSet
+                    {
+                        Rezultati = rezultati.GetRange(BrojPodatakaPoFoldu*4, BrojPodatakaPoFoldu),
+                        Varijable = listaVarijabli.GetRange(BrojPodatakaPoFoldu*4, BrojPodatakaPoFoldu)
+                    }
+                };
+                var evaluation = new DataSet
+                {
+                    Varijable = listaVarijabli.GetRange(BrojPodatakaPoFoldu*5, BrojPodatakaPoFoldu),
+                    Rezultati = rezultati.GetRange(BrojPodatakaPoFoldu*5, BrojPodatakaPoFoldu)
+                };
+
+                FoldForTesting = 0;
+                PodaciZaUcenje = new DataSet();
+                foreach (var fold in _folds.Where((ds, i) => i != FoldForTesting))
+                {
+                    PodaciZaUcenje.Varijable = PodaciZaUcenje.Varijable.Concat(fold.Varijable).ToList();
+                    PodaciZaUcenje.Rezultati = PodaciZaUcenje.Rezultati.Concat(fold.Rezultati).ToList();
+                }
+                PodaciZaProvjeru = _folds[FoldForTesting];
+                PodaciZaEvaluaciju = evaluation;
+            }
         }
 
         public bool PromijeniFold()
