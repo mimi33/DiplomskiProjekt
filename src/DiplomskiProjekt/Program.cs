@@ -19,6 +19,8 @@ namespace DiplomskiProjekt
 
             for (var i = 0; i < 24; i++)
             {
+                Console.WriteLine("=============================================");
+                Console.WriteLine("Sat: " + i);
                 GenProg = new GP(i, args[0]);
                 GenProg.Pokreni();
             }

@@ -1,7 +1,7 @@
 import xml.etree.ElementTree as ET
 import matplotlib.pyplot as plt
 
-plotati = False
+plotati = True
 
 for i in range(24): #za svaki sat
 	statsFile = open("./Stats/stats"+str(i)+".txt", "w")

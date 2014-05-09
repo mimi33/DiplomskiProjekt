@@ -59,12 +59,7 @@ namespace DiplomskiProjekt.Classes
                 rezultati[n] = value2;
             }  
 
-            // posložiti te vrijednosti u datasetove
-            if (BrojPodatakaPoFoldu*6 > listaVarijabli.Count)
-            {
-                BrojPodatakaPoFoldu = (int) Math.Floor(listaVarijabli.Count/(double) 6);
-                Console.WriteLine("Broj podataka po foldu je prevelik. Novi broj je " + BrojPodatakaPoFoldu);
-            }
+            
             if (!crx)
             {
                 FoldForTesting = -1;
@@ -72,6 +67,12 @@ namespace DiplomskiProjekt.Classes
             }
             else
             {
+                // posložiti te vrijednosti u datasetove
+                if (BrojPodatakaPoFoldu * 6 > listaVarijabli.Count)
+                {
+                    BrojPodatakaPoFoldu = (int)Math.Floor(listaVarijabli.Count / (double)6);
+                    Console.WriteLine("Broj podataka po foldu je prevelik. Novi broj je " + BrojPodatakaPoFoldu);
+                }
                 _folds = new List<DataSet>
                 {
                     new DataSet

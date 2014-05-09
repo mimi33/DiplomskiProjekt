@@ -14,6 +14,8 @@ namespace DiplomskiProjekt.Classes
         // ReSharper disable once InconsistentNaming
         private static uint m_z;
 
+        private static readonly Object LockObject = new object();
+
         static RandomGenerator()
         {
             // These values are not magical, just the default values Marsaglia used.
@@ -96,9 +98,20 @@ namespace DiplomskiProjekt.Classes
         // See http://www.bobwheeler.com/statistics/Password/MarsagliaPost.txt
         private static uint GetUint()
         {
-            m_z = 36969 * (m_z & 65535) + (m_z >> 16);
-            m_w = 18000 * (m_w & 65535) + (m_w >> 16);
-            return (m_z << 16) + m_w;
+            uint a;
+            lock (LockObject)
+            {
+                m_z = 36969*(m_z & 65535) + (m_z >> 16);
+                m_w = 18000*(m_w & 65535) + (m_w >> 16);
+                if (m_w == 0 && m_z == 0)
+                {
+                    SetSeedFromSystemTime();
+                    Console.WriteLine("Dogodile su se nule u random generatoru...");
+                    Console.ReadKey();
+                }
+                a = (m_z << 16) + m_w;
+            }
+            return a;
         }
         
         // Get normal (Gaussian) random sample with mean 0 and standard deviation 1
@@ -117,7 +130,7 @@ namespace DiplomskiProjekt.Classes
         {
             if (standardDeviation <= 0.0)
             {
-                string msg = string.Format("Shape must be positive. Received {0}.", standardDeviation);
+                var msg = string.Format("Shape must be positive. Received {0}.", standardDeviation);
                 throw new ArgumentOutOfRangeException(msg);
             }
             return mean + standardDeviation*GetNormal();

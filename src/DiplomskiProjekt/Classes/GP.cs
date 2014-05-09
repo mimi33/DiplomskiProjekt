@@ -136,6 +136,7 @@ namespace DiplomskiProjekt.Classes
             if (log.Root != null) 
                 log.Root.Add(new XElement("Batch", new XAttribute("number", batchNo)));
             log.Save(_logPath);
+            Console.WriteLine("\nBatch:" + batchNo);
         }
 
         void InitNewFoldInLog(string type, int foldNo)
@@ -148,6 +149,7 @@ namespace DiplomskiProjekt.Classes
             else
                 log.Root.Elements("Batch").Last().Add(new XElement("XValidation", new XAttribute("type", type), new XAttribute("foldNumber", foldNo)));
             log.Save(_logPath);
+            Console.WriteLine("Fold: " + foldNo);
         }
 
         /// <summary>

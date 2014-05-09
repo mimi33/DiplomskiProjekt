@@ -1,9 +1,9 @@
 ﻿<GeneticProgramming>
 	<Algorithm name="SteadyStateTournament">
-		<PopulationSize>100</PopulationSize>
+		<PopulationSize>250</PopulationSize>
 		<ParamK>3</ParamK>
 		<Termination>
-			<Entry name="NumberOfGenerations">500</Entry>
+			<Entry name="NumberOfGenerations">200</Entry>
 		</Termination>
 	</Algorithm>
 	
@@ -31,7 +31,7 @@
 	</Evaluation>
 	
 	<Log>
-		<GenerationFrequency>2</GenerationFrequency>
+		<GenerationFrequency>25</GenerationFrequency>
 		<FileName>Logovi/log{ID}.txt</FileName>
 		<BatchNo>10</BatchNo>
 	</Log>
