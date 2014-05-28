@@ -1,0 +1,42 @@
+﻿<GeneticProgramming>
+	<Algorithm name="GenerationalTournamentOneOperator">
+		<PopulationSize>500</PopulationSize>
+		<ParamK>2</ParamK>
+		<Termination>
+			<Entry name="NumberOfGenerations">100</Entry>
+		</Termination>
+	</Algorithm>
+	
+	<Tree>
+		<MaxDepth>8</MaxDepth>
+		<MinDepth>3</MinDepth>
+		<FunctionSet>+ - * / ifRadniDan</FunctionSet>
+	</Tree>
+
+	<Crossover>
+		<Name>OnePointCrossover</Name>
+		<CrxFactor>0.95</CrxFactor>
+	</Crossover>
+	
+	<Mutation>
+		<Name>PointMutation</Name>
+		<Type>NodeMutation</Type>  <!--treba se drugacije ponasati kada je node i kada je tree mutation-->
+		<MutFactor>0.01</MutFactor>
+		<ExtraConstantMutation>true</ExtraConstantMutation>
+	</Mutation>
+	
+	<Evaluation>
+		<TrainEvaluator>MSE</TrainEvaluator>
+		<Crossvalidation>false</Crossvalidation>
+		<Data>
+			<DataPath>PoSatima/sat{ID}.txt</DataPath>
+			<PreviousLoads>5</PreviousLoads>
+		</Data>
+	</Evaluation>
+	
+	<Log>
+		<GenerationFrequency>5</GenerationFrequency>
+		<FileName>Logovi/log{ID}.txt</FileName>
+		<BatchNo>10</BatchNo>
+	</Log>
+</GeneticProgramming>

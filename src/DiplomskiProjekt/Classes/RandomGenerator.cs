@@ -7,7 +7,7 @@ namespace DiplomskiProjekt.Classes
     /// <summary>
     /// Written by John D. Cook - http://www.johndcook.com
     /// </summary>
-    public class RandomGenerator
+    public static class RandomGenerator
     {
         // ReSharper disable once InconsistentNaming
         private static uint m_w;
@@ -29,7 +29,7 @@ namespace DiplomskiProjekt.Classes
         // 2) specifying one non-zero unsigned integer and taking a default value for the second
         // 3) setting the seed from the system time
 
-        public static void SetSeed(uint u, uint v)
+        private static void SetSeed(uint u, uint v)
         {
             if (u != 0) m_w = u; 
             if (v != 0) m_z = v;
@@ -52,7 +52,7 @@ namespace DiplomskiProjekt.Classes
             return lista[GetIntRange(0, lista.Count)];
         }
 
-        public static IList<T> GetRandomSubList<T>(IList<T> lista, int noOfElements)
+        /*public static IList<T> GetRandomSubList<T>(IEnumerable<T> lista, int noOfElements)
         {
             var tmpList = lista.ToList();
 
@@ -64,7 +64,7 @@ namespace DiplomskiProjekt.Classes
                 tmpList.Remove(elem);
             }
             return result;
-        }
+        }*/
 
         // Produce a uniform random sample from the open interval (0, 1).
         // The method will not return either end point.
@@ -115,7 +115,7 @@ namespace DiplomskiProjekt.Classes
         }
         
         // Get normal (Gaussian) random sample with mean 0 and standard deviation 1
-        public static double GetNormal()
+        private static double GetNormal()
         {
             // Use Box-Muller algorithm
             double u1 = GetUniform();
@@ -136,13 +136,13 @@ namespace DiplomskiProjekt.Classes
             return mean + standardDeviation*GetNormal();
         }
         
-        // Get exponential random sample with mean 1
+        /*// Get exponential random sample with mean 1
         public static double GetExponential()
         {
             return -Math.Log( GetUniform() );
-        }
+        }*/
 
-        // Get exponential random sample with specified mean
+        /*// Get exponential random sample with specified mean
         public static double GetExponential(double mean)
         {
             if (mean <= 0.0)
@@ -151,9 +151,9 @@ namespace DiplomskiProjekt.Classes
                 throw new ArgumentOutOfRangeException(msg);
             }
             return mean*GetExponential();
-        }
+        }*/
 
-        public static double GetGamma(double shape, double scale)
+       /* public static double GetGamma(double shape, double scale)
         {
             // Implementation based on "A Simple Method for Generating Gamma Variables"
             // by George Marsaglia and Wai Wan Tsang.  ACM Transactions on Mathematical Software
@@ -190,23 +190,23 @@ namespace DiplomskiProjekt.Classes
             var w = GetUniform();
             return scale*g*Math.Pow(w, 1.0/shape);
             
-        }
+        }*/
 
-        public static double GetChiSquare(double degreesOfFreedom)
+       /* public static double GetChiSquare(double degreesOfFreedom)
         {
             // A chi squared distribution with n degrees of freedom
             // is a gamma distribution with shape n/2 and scale 2.
             return GetGamma(0.5 * degreesOfFreedom, 2.0);
         }
-
-        public static double GetInverseGamma(double shape, double scale)
+        */
+        /*public static double GetInverseGamma(double shape, double scale)
         {
             // If X is gamma(shape, scale) then
             // 1/Y is inverse gamma(shape, 1/scale)
             return 1.0 / GetGamma(shape, 1.0 / scale);
-        }
+        }*/
 
-        public static double GetWeibull(double shape, double scale)
+        /*public static double GetWeibull(double shape, double scale)
         {
             if (shape <= 0.0 || scale <= 0.0)
             {
@@ -214,9 +214,9 @@ namespace DiplomskiProjekt.Classes
                 throw new ArgumentOutOfRangeException(msg);
             }
             return scale * Math.Pow(-Math.Log(GetUniform()), 1.0 / shape);
-        }
+        }*/
 
-        public static double GetCauchy(double median, double scale)
+        /*public static double GetCauchy(double median, double scale)
         {
             if (scale <= 0)
             {
@@ -228,9 +228,9 @@ namespace DiplomskiProjekt.Classes
 
             // Apply inverse of the Cauchy distribution function to a uniform
             return median + scale*Math.Tan(Math.PI*(p - 0.5));
-        }
+        }*/
 
-        public static double GetStudentT(double degreesOfFreedom)
+        /*public static double GetStudentT(double degreesOfFreedom)
         {
             if (degreesOfFreedom <= 0)
             {
@@ -242,23 +242,23 @@ namespace DiplomskiProjekt.Classes
             double y1 = GetNormal();
             double y2 = GetChiSquare(degreesOfFreedom);
             return y1 / Math.Sqrt(y2 / degreesOfFreedom);
-        }
+        }*/
 
-        // The Laplace distribution is also known as the double exponential distribution.
+        /*// The Laplace distribution is also known as the double exponential distribution.
         public static double GetLaplace(double mean, double scale)
         {
             double u = GetUniform();
             return (u < 0.5) ?
                 mean + scale*Math.Log(2.0*u) :
                 mean - scale*Math.Log(2*(1-u));
-        }
+        }*/
 
-        public static double GetLogNormal(double mu, double sigma)
+       /* public static double GetLogNormal(double mu, double sigma)
         {
             return Math.Exp(GetNormal(mu, sigma));
-        }
+        }*/
 
-        public static double GetBeta(double a, double b)
+        /*public static double GetBeta(double a, double b)
         {
             if (a <= 0.0 || b <= 0.0)
             {
@@ -274,6 +274,6 @@ namespace DiplomskiProjekt.Classes
             double u = GetGamma(a, 1.0);
             double v = GetGamma(b, 1.0);
             return u / (u + v);
-        }
+        }*/
     }
 }

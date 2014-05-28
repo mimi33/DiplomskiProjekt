@@ -4,14 +4,13 @@ namespace DiplomskiProjekt
 {
     using Classes;
 
-    class Program
+    static class Program
     {
-        public static GP GenProg;
+        private static GP _genProg;
 
         static void Main(string[] args)
         {
-            if (args.Length != 1)
-                throw new ArgumentException();
+            var configFileName = args.Length == 1 ? args[0] : "Config.xml";
             Console.Clear();
             Console.CancelKeyPress += myHandler;
 
@@ -21,15 +20,15 @@ namespace DiplomskiProjekt
             {
                 Console.WriteLine("=============================================");
                 Console.WriteLine("Sat: " + i);
-                GenProg = new GP(i, args[0]);
-                GenProg.Pokreni();
+                _genProg = new GP(i, configFileName);
+                _genProg.Pokreni();
             }
         }
 
         /// <summary>
         /// Služi za ručno postavljanje uvjeta zaustavljanja programa
         /// </summary>
-        protected static void myHandler(object sender, ConsoleCancelEventArgs args)
+        static void myHandler(object sender, ConsoleCancelEventArgs args)
         {
             GP.Zavrsi = true;
             args.Cancel = true;

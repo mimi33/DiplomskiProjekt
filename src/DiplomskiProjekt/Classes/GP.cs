@@ -19,14 +19,16 @@ namespace DiplomskiProjekt.Classes
         public static Mutation MutationOp;
         public static Crossover CrossoverOp;
         public static Evaluation EvaluationOp;
-        public static Algorithm Algorithm;
-        public static List<TerminationCondition> TerminationConditions;
+        private static Algorithm _algorithm;
+        private static List<TerminationCondition> _terminationConditions;
 
-        public static int GenerationFrequencyLogging;
+        private static int _generationFrequencyLogging;
         
         public GP(int id, string configPath)
         {
             _id = id;
+            Zavrsi = false;
+            Iteracija = 0;
             var configDocument = XDocument.Load(configPath);
             foreach (var node in Enum.GetNames(typeof(NodeType)))
             {
@@ -57,7 +59,7 @@ namespace DiplomskiProjekt.Classes
                         PokreniCrossValidation();
                     else
                     {
-                        Algorithm.ResetirajPopulaciju();
+                        _algorithm.ResetirajPopulaciju();
                         Zavrsi = false;
                         Iteriraj();
                     }
@@ -69,11 +71,11 @@ namespace DiplomskiProjekt.Classes
         {
             for (Iteracija = 0; !Zavrsi; Iteracija++)
             {
-                Algorithm.OdradiGeneraciju();
-                if (Iteracija != 0 && Iteracija % GenerationFrequencyLogging == 0)
-                    WriteToLog(Algorithm.NajboljaJedinka, _crossvalidation, Iteracija);
+                _algorithm.OdradiGeneraciju();
+                if (Iteracija != 0 && Iteracija % _generationFrequencyLogging == 0)
+                    WriteToLog(_algorithm.NajboljaJedinka, _crossvalidation, Iteracija);
 
-                TerminationConditions.ForEach(t => t.ConditionMet(this));
+                _terminationConditions.ForEach(t => t.ConditionMet(this));
             }
         }
 
@@ -84,13 +86,13 @@ namespace DiplomskiProjekt.Classes
 
             while (!zavrsenoUcenje)
             {
-                Algorithm.ResetirajPopulaciju();
+                _algorithm.ResetirajPopulaciju();
                 Zavrsi = false;
                 InitNewFoldInLog("Train", EvaluationOp.FoldNaKojemuSeUci + 1);
 
                 Iteriraj();
 
-                populacijaNajboljih.Add(Algorithm.NajboljaJedinka.Kopiraj());
+                populacijaNajboljih.Add(_algorithm.NajboljaJedinka.Kopiraj());
                 zavrsenoUcenje = EvaluationOp.SlijedeciPodaciZaUcenje();
             }
             InitNewFoldInLog("Evaluation", -1);
@@ -179,15 +181,23 @@ namespace DiplomskiProjekt.Classes
                 case NodeType.Algorithm:
                     var att = (xmlElement != null) ? xmlElement.Attribute("name").Value : DefaultValues.AlgorithmName;
                     var popSize = (int?) djeca.FirstOrDefault(xe => xe.Name == "PopulationSize") ?? DefaultValues.PopulationSize;
+                    var k = (int?)djeca.FirstOrDefault(xe => xe.Name == "ParamK") ?? DefaultValues.TournamentSize;
                     switch (att)
                     {
-                        case "SteadyStateTournament":
-                            var k = (int?)djeca.FirstOrDefault(xe => xe.Name == "ParamK") ?? DefaultValues.TournamentSize;
-                            Algorithm = new SteadyStateTournament(popSize, k);
+                        case "SteadyStateTournamentOneOperator":
+                            _algorithm = new SteadyStateTournamentOneOperator(popSize, k);
                             break;
-                            //todo dodati druge algoritme tu
+                        case "SteadyStateTournamentTwoOperators":
+                            _algorithm = new SteadyStateTournamentTwoOperators(popSize, k);
+                            break;
+                        case "GenerationalTournamentOneOperator":
+                            _algorithm = new GenerationalTournamentOneOperator(popSize, k);
+                            break;
+                        case "GenerationalTournamentTwoOperators":
+                            _algorithm = new GenerationalTournamentTwoOperators(popSize, k);
+                            break;
                     }
-                    TerminationConditions = TerminationConditions ?? new List<TerminationCondition>();
+                    _terminationConditions = _terminationConditions ?? new List<TerminationCondition>();
                     var term = djeca.FirstOrDefault(xe => xe.Name == "Termination");
                     if (term != null)
                     {
@@ -198,17 +208,17 @@ namespace DiplomskiProjekt.Classes
                             {
                                 case "NumberOfGenerations":
                                     var maxBrojGen = (int?) termCondition ?? 100;
-                                    TerminationConditions.Add(new MaxGenerationCondition(maxBrojGen));
+                                    _terminationConditions.Add(new MaxGenerationCondition(maxBrojGen));
                                     break;
                                     //todo dodati druge term cond tu
                             }
                         }
-                        if (TerminationConditions.Count == 0)
+                        if (_terminationConditions.Count == 0)
                         {
                             switch (DefaultValues.TerminationName)
                             {
                                 case "NumberOfGenerations":
-                                    TerminationConditions.Add(new MaxGenerationCondition(DefaultValues.TerminationValue));
+                                    _terminationConditions.Add(new MaxGenerationCondition(DefaultValues.TerminationValue));
                                     break;
                             }
                         }
@@ -218,22 +228,23 @@ namespace DiplomskiProjekt.Classes
                         switch (DefaultValues.TerminationName)
                         {
                             case "NumberOfGenerations":
-                                TerminationConditions.Add(new MaxGenerationCondition(DefaultValues.TerminationValue));
+                                _terminationConditions.Add(new MaxGenerationCondition(DefaultValues.TerminationValue));
                                 break;
                         }
                     }
                     break;
 
                 case NodeType.Mutation:
-                    att = (xmlElement != null) ? xmlElement.Attribute("name").Value : DefaultValues.MutationName;
-                    var mutFactor = (double?) djeca.FirstOrDefault(xe => xe.Name == "MutFactor") ??
-                                    DefaultValues.MutationFactor;
+                    att = (string) djeca.FirstOrDefault(xe => xe.Name == "Name") ?? DefaultValues.MutationName;
+                    var mutFactor = (double?) djeca.FirstOrDefault(xe => xe.Name == "MutFactor") ?? DefaultValues.MutationFactor;
                     switch (att)
                     {
-                        case "SimpleMut":
-                            MutationOp = new SimpleMutation { MutationFactor = mutFactor };
+                        case "PointMutation":
+                            MutationOp = new PointMutation { MutationFactor = mutFactor };
                             break;
-                            // todo dodati za ostale mutacije
+                        case "HoistMutation":
+                            MutationOp = new HoistMutation {MutationFactor = mutFactor};
+                            break;
                     }
                     MutationOp.ConstantMutationEnabled =
                         ((string) djeca.FirstOrDefault(xe => xe.Name == "ExtraConstantMutation") ??
@@ -241,13 +252,16 @@ namespace DiplomskiProjekt.Classes
                     break;
                 
                 case NodeType.Crossover:
-                    att = (xmlElement != null) ? xmlElement.Attribute("name").Value : DefaultValues.CrxName;
+                    att = (string) djeca.FirstOrDefault(xe => xe.Name == "Name") ?? DefaultValues.CrxName;
+                    var crxFactor = (double?)djeca.FirstOrDefault(xe => xe.Name == "CrxFactor") ?? DefaultValues.CrxFactor;
                     switch (att)
                     {
-                        case "SimpleCrx":
-                            CrossoverOp = new SimpleCrossover();
+                        case "OnePointCrossover":
+                            CrossoverOp = new OnePointCrossover {CrossoverFactor = crxFactor};
                             break;
-                            //todo tu dodati druge operatore križanja
+                        case "UniformCrossover":
+                            CrossoverOp = new UniformCrossover {CrossoverFactor = crxFactor};
+                            break;
                     }
                     break;
 
@@ -284,7 +298,7 @@ namespace DiplomskiProjekt.Classes
                     break;
 
                 case NodeType.Log:
-                    GenerationFrequencyLogging = (int?) djeca.FirstOrDefault(xe => xe.Name == "GenerationFrequency") ?? DefaultValues.LogGenerationFrequency;
+                    _generationFrequencyLogging = (int?) djeca.FirstOrDefault(xe => xe.Name == "GenerationFrequency") ?? DefaultValues.LogGenerationFrequency;
                     _logPath =
                         ((string) djeca.FirstOrDefault(xe => xe.Name == "FileName") ?? DefaultValues.LogFilename).Replace("{ID}",
                             _id.ToString(CultureInfo.InvariantCulture));

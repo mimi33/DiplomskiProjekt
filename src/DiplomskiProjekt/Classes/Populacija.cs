@@ -8,31 +8,29 @@ namespace DiplomskiProjekt.Classes
     public class Populacija : IList<Jedinka>
     {
         readonly List<Jedinka> _populacija;
-        public int BrojJedinki;
 
-        private Jedinka _najboljaJedinka;
+        private int _indexNajboljeJedinke;
+        //private Jedinka _najboljaJedinka;
         public Jedinka NajboljaJedinka
         {
-            set
-            {
-                if (_najboljaJedinka == null || value.GreskaJedinke < _najboljaJedinka.GreskaJedinke)
-                    _najboljaJedinka = value;
-            }
             get
             {
-                if (_najboljaJedinka == null)
+                if (_populacija.Count == 0)
+                    return null;
+                if (_indexNajboljeJedinke == -1)
                 {
                     var min = _populacija.Min(x => x.GreskaJedinke);
                     // ReSharper disable once CompareOfFloatsByEqualityOperator
-                    _najboljaJedinka = _populacija.First(x => x.GreskaJedinke == min);
+                    _indexNajboljeJedinke = _populacija.IndexOf(_populacija.First(x => x.GreskaJedinke == min));
                 }
-                return _najboljaJedinka;
+                return _populacija[_indexNajboljeJedinke];
             }
         }
 
         public Populacija()
         {
             _populacija = new List<Jedinka>();
+            _indexNajboljeJedinke = -1;
         }
 
         /// <summary>
@@ -40,24 +38,29 @@ namespace DiplomskiProjekt.Classes
         /// </summary>
         public Populacija(int velicinaPopulacije)
         {
-            BrojJedinki = velicinaPopulacije;
-            _najboljaJedinka = null;
-
+            _indexNajboljeJedinke = -1;
             _populacija = new List<Jedinka>();
-            for (var i = 0; i < BrojJedinki; i++)
+            for (var i = 0; i < velicinaPopulacije; i++)
             {
                 var j = new Jedinka();
+                j.FiksirajKonstante();
                 GP.EvaluationOp.IzracunajGresku(j);
                 Add(j);
             }
         }
 
-        public bool ProvijeriPreuzimanje() // todo ovo ne bi smijelo trebati
+        //public bool ProvijeriPreuzimanje() // todo ovo ne bi smijelo trebati
+        //{
+        //    // ReSharper disable once CompareOfFloatsByEqualityOperator
+        //    var najgoraJedinka = _populacija.First(j => j.GreskaJedinke == _populacija.Min(x => x.GreskaJedinke));
+        //    return
+        //        (string.Compare(NajboljaJedinka.ToString(), najgoraJedinka.ToString(), StringComparison.InvariantCulture) == 0);
+        //}
+
+        public Jedinka IzracunajNajboljuJedinku()
         {
-            // ReSharper disable once CompareOfFloatsByEqualityOperator
-            var najgoraJedinka = _populacija.First(j => j.GreskaJedinke == _populacija.Min(x => x.GreskaJedinke));
-            return
-                (string.Compare(NajboljaJedinka.ToString(), najgoraJedinka.ToString(), StringComparison.InvariantCulture) == 0);
+            _indexNajboljeJedinke = -1;
+            return NajboljaJedinka;
         }
 
         #region IList wrapper
@@ -70,14 +73,16 @@ namespace DiplomskiProjekt.Classes
         public void Insert(int index, Jedinka item)
         {
             _populacija.Insert(index, item);
-            NajboljaJedinka = item;
+            if (_indexNajboljeJedinke == index)
+                _indexNajboljeJedinke = -1;
         }
 
         public void RemoveAt(int index)
         {
             _populacija.RemoveAt(index);
-            if (NajboljaJedinka == _populacija[index])
-                _najboljaJedinka = null;
+            if (index == _indexNajboljeJedinke)
+            //if (NajboljaJedinka == _populacija[index])
+                _indexNajboljeJedinke = -1;
         }
 
         public Jedinka this[int index]
@@ -85,21 +90,25 @@ namespace DiplomskiProjekt.Classes
             get { return _populacija[index]; }
             set
             {
+                if (_indexNajboljeJedinke == index)
+                    _indexNajboljeJedinke = -1;
                 _populacija[index] = value;
-                NajboljaJedinka = value;
             }
         }
 
         public void Add(Jedinka jedinka)
         {
+            if (double.IsNaN(jedinka.GreskaJedinke))
+                throw new Exception();
             _populacija.Add(jedinka);
-            NajboljaJedinka = jedinka;
+            if (_indexNajboljeJedinke == -1 || jedinka.GreskaJedinke < _populacija[_indexNajboljeJedinke].GreskaJedinke)
+                _indexNajboljeJedinke = Count - 1;
         }
 
         public void Clear()
         {
             _populacija.Clear();
-            _najboljaJedinka = null;
+            _indexNajboljeJedinke = -1;
         }
 
         public bool Contains(Jedinka jedinka)
@@ -114,8 +123,8 @@ namespace DiplomskiProjekt.Classes
 
         public bool Remove(Jedinka item)
         {
-            if (item == NajboljaJedinka)
-                _najboljaJedinka = null;
+            if (_indexNajboljeJedinke == IndexOf(item))
+                _indexNajboljeJedinke = -1;
             return _populacija.Remove(item);
         }
 

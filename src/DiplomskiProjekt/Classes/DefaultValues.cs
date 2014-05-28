@@ -4,35 +4,36 @@ namespace DiplomskiProjekt.Classes
     public static class DefaultValues
     {
         // Algortihm
-        public static string AlgorithmName = "SteadyStateTournament";
-        public static int PopulationSize = 150;
-        public static int TournamentSize = 3;
-        public static string TerminationName = "NumberOfGenerations";
-        public static int TerminationValue = 500;
+        public const string AlgorithmName = "SteadyStateTournamentTwoOperators";
+        public const int PopulationSize = 500;
+        public const int TournamentSize = 3;
+        public const string TerminationName = "NumberOfGenerations";
+        public const int TerminationValue = 100;
 
         // Tree
-        public static int MaxDepth = 8;
-        public static int MinDepth = 3;
-        public static string FunctionSet = "+ - * /";
+        public const int MaxDepth = 8;
+        public const int MinDepth = 3;
+        public const string FunctionSet = "+ - * /";
 
         // Crossover
-        public static string CrxName = "SimpleCrx";
-        
+        public const string CrxName = "OnePointCrossover";
+        public const double CrxFactor = 0.95d;
+
         // Mutation
-        public static string MutationName = "SimpeMutation";
-        public static double MutationFactor = 0.01;
-        public static string ExtraConstantMutation = "true";
+        public const string MutationName = "PointMutation";
+        public const double MutationFactor = 0.01;
+        public const string ExtraConstantMutation = "true";
 
         // Evaluation
-        public static string TrainEvaluatior = "MSE";
-        public static bool CrossValidation = false;
-        public static int FoldSize = 20;
-        public static string DataPath = "PoSatima/sat{ID}.txt";
-        public static int BrojPrijasnjihMjerenja = 7;
+        public const string TrainEvaluatior = "MSE";
+        public const bool CrossValidation = false;
+        public const int FoldSize = 20;
+        public const string DataPath = "PoSatima/sat{ID}.txt";
+        public const int BrojPrijasnjihMjerenja = 7;
 
         // Log
-        public static int LogGenerationFrequency = 10;
-        public static string LogFilename = "Logovi/log{ID}.txt";
-        public static int BatchSize = 1; 
+        public const int LogGenerationFrequency = 10;
+        public const string LogFilename = "Logovi/log{ID}.txt";
+        public const int BatchSize = 1;
     }
 }

@@ -5,7 +5,7 @@ using System.Xml.Linq;
 
 namespace DiplomskiProjekt.Classes
 {
-    public class Jedinka
+    public class Jedinka : IComparable<Jedinka>
     {
         public static int MaxDubina;
         public static int MinDubina;
@@ -26,7 +26,7 @@ namespace DiplomskiProjekt.Classes
             }
         }
 
-        public void Generiraj(Cvor cvor, int dubina)
+        private static void Generiraj(Cvor cvor, int dubina)
         {
             if (cvor.BrojDjece == 0)
                 return;
@@ -119,6 +119,41 @@ namespace DiplomskiProjekt.Classes
                 DodajDjecu(dijete, listaCvors);
             }
             
+        }
+
+        public void FiksirajKonstante()
+        {
+            FiksirajKonstante(Korjen);
+        }
+
+        private static void FiksirajKonstante(Cvor cvor)
+        {
+            if (cvor.Tip == TipCvora.Konstanta && double.IsNaN(cvor.Vrijednost))
+                cvor.Vrijednost = RandomGenerator.GetNormal(0, 10);
+            if (cvor.Djeca == null) return;
+            foreach (var c in cvor.Djeca)
+            {
+                FiksirajKonstante(c);
+            }
+        }
+
+        public int BrojCvorova()
+        {
+            return BrojCvorova(Korjen);   
+        }
+
+        private static int BrojCvorova(Cvor cvor)
+        {
+            if (cvor.BrojDjece == 0)
+            {
+                return 1;
+            }
+            return cvor.Djeca.Select(BrojCvorova).Sum() + 1;
+        }
+
+        public int CompareTo(Jedinka other)
+        {
+            return -String.Compare(ToString(), other.ToString(), StringComparison.Ordinal);
         }
 
         public override string ToString()

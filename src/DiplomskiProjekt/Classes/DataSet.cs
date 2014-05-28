@@ -17,7 +17,7 @@ namespace DiplomskiProjekt.Classes
 
         public DataSet PodaciZaUcenje;
         public DataSet PodaciZaProvjeru;
-        public DataSet PodaciZaEvaluaciju;
+        public readonly DataSet PodaciZaEvaluaciju;
 
         public Podaci(string filename, bool crx)
         {

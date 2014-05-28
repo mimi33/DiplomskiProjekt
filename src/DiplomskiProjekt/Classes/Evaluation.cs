@@ -17,12 +17,17 @@ namespace DiplomskiProjekt.Classes
             // todo - mijenjati dataset ovisno o potrebama i provjeriti dal je dobro
         }
 
-        public IList<double> IzračunajVrijednostiJedinke(Jedinka jedinka, DataSet dataSet)
+        private static IEnumerable<double> IzračunajVrijednostiJedinke(Jedinka jedinka, DataSet dataSet)
         {
             var rezultatiJedinke = new List<double>(new double[dataSet.BrojZapisa]);
 
             Parallel.For(0, dataSet.Varijable.Count,
                 i => rezultatiJedinke[i] = jedinka.Izracunaj(dataSet.Varijable[i]));
+
+            //for (int i = 0; i < dataSet.Varijable.Count; i++)
+            //{
+            //    rezultatiJedinke[i] = jedinka.Izracunaj((dataSet.Varijable[i]));
+            //}
             return rezultatiJedinke;
         }
 
@@ -47,12 +52,12 @@ namespace DiplomskiProjekt.Classes
             return jedinka.GreskaJedinke = Greska(IzračunajVrijednostiJedinke(jedinka, _podaci.PodaciZaEvaluaciju), _podaci.PodaciZaEvaluaciju.Rezultati);
         }
 
-        public abstract double Greska(IEnumerable<double> rezultatiJedinke, IEnumerable<double> rezultatiPodataka);
+        protected abstract double Greska(IEnumerable<double> rezultatiJedinke, IEnumerable<double> rezultatiPodataka);
     }
 
     public class MseEvaluation : Evaluation
     {
-        public override double Greska(IEnumerable<double> rezultatiJedinke, IEnumerable<double> rezultatiPodataka)
+        protected override double Greska(IEnumerable<double> rezultatiJedinke, IEnumerable<double> rezultatiPodataka)
         {
             return rezultatiJedinke.Zip(rezultatiPodataka, (o, f) => Math.Pow(o - f, 2)).Average();
         }
@@ -60,7 +65,7 @@ namespace DiplomskiProjekt.Classes
 
     public class MaeEvaluation : Evaluation
     {
-        public override double Greska(IEnumerable<double> rezultatiJedinke, IEnumerable<double> rezultatiPodataka)
+        protected override double Greska(IEnumerable<double> rezultatiJedinke, IEnumerable<double> rezultatiPodataka)
         {
             return rezultatiJedinke.Zip(rezultatiPodataka, (o, f) => Math.Abs(o - f)).Average();
         }
@@ -68,9 +73,9 @@ namespace DiplomskiProjekt.Classes
 
     public class MapeEvaluation : Evaluation
     {
-        public override double Greska(IEnumerable<double> rezultatiJedinke, IEnumerable<double> rezultatiPodataka)
+        protected override double Greska(IEnumerable<double> rezultatiJedinke, IEnumerable<double> rezultatiPodataka)
         {
-            return rezultatiJedinke.Zip(rezultatiPodataka, (o, f) => (1 - Math.Abs(o / f))).Average();
+            return rezultatiJedinke.Zip(rezultatiPodataka, (o, f) => (Math.Abs(1 - o / f))).Average() * 100;
         }
     }
 }

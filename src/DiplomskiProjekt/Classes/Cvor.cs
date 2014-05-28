@@ -41,7 +41,7 @@ namespace DiplomskiProjekt.Classes
         /// <summary>
         /// Generički konstruktor.
         /// </summary>
-        public Cvor(){}
+        private Cvor(){}
 
         /// <summary>
         /// Za kreiranje novog funkcijskog čvora bez roditelja.
@@ -109,7 +109,7 @@ namespace DiplomskiProjekt.Classes
         /// </summary>
         /// <param name="dijeteCvor">Cvor koji se dodaje kao dijete.</param>
         /// <returns>Kopirani cvor kojemu je postavljen roditelj.</returns>
-        public Cvor DodajDijeteKaoKopiju(Cvor dijeteCvor)
+        private Cvor DodajDijeteKaoKopiju(Cvor dijeteCvor)
         {
             if (Djeca == null || Djeca.Count == BrojDjece)
                 return null;
@@ -139,7 +139,7 @@ namespace DiplomskiProjekt.Classes
             return dijete;
         }
 
-        public int IndexOf(Cvor dijete)
+        private int IndexOf(Cvor dijete)
         {
             return Djeca.IndexOf(dijete);
         }
@@ -161,7 +161,7 @@ namespace DiplomskiProjekt.Classes
                         return s.ToString();
                     }
                 case TipCvora.Konstanta:
-                    return Math.Round(Vrijednost, 2).ToString("0.00 ");
+                    return Math.Round(Vrijednost, 2).ToString("0.000 ");
                 case TipCvora.Varijabla:
                     return Math.Round(Vrijednost, 0).ToString("$0 ");
             }
@@ -170,6 +170,7 @@ namespace DiplomskiProjekt.Classes
 
         public double RekurzivnoIzracunaj(List<double> varijable)
         {
+
             if (varijable == null) throw new Exception();
             var a = (BrojDjece == 0) ? 0 : Djeca[0].RekurzivnoIzracunaj(varijable);
             var b = (BrojDjece <= 1) ? 0 : Djeca[1].RekurzivnoIzracunaj(varijable);
@@ -188,8 +189,6 @@ namespace DiplomskiProjekt.Classes
                         default: return 0;
                     }
                 case TipCvora.Konstanta:
-                    if (double.IsNaN(Vrijednost))
-                        Vrijednost = RandomGenerator.GetNormal(0, 10);
                     return Vrijednost;
                 case TipCvora.Varijabla:
                     return varijable[(int)Vrijednost];
@@ -263,6 +262,17 @@ namespace DiplomskiProjekt.Classes
         static Cvor SlucajniFunkcijskiCvor(int brojDjece)
         {
             return RandomGenerator.GetRandomElement(FunkcijskiCvorovi.Where(x => x.BrojDjece == brojDjece).ToList()).Kopiraj();
+        }
+
+        public static void ZamjeniRoditelje(Cvor cvor1, Cvor cvor2)
+        {
+            var i1 = cvor1.Roditelj.IndexOf(cvor1);
+            var i2 = cvor2.Roditelj.IndexOf(cvor2);
+            cvor1.Roditelj.Djeca[i1] = cvor2;
+            cvor2.Roditelj.Djeca[i2] = cvor1;
+            var tmp = cvor1.Roditelj;
+            cvor1.Roditelj = cvor2.Roditelj;
+            cvor2.Roditelj = tmp;
         }
 
     }

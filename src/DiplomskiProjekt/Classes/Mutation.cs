@@ -1,4 +1,7 @@
-﻿namespace DiplomskiProjekt.Classes
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace DiplomskiProjekt.Classes
 {
     public abstract class Mutation
     {
@@ -6,7 +9,7 @@
         public double MutationFactor;
         public abstract Jedinka Mutiraj(Jedinka jedinka);
 
-        public void MutirajKonstantu(Cvor cvor)
+        protected static void MutirajKonstantu(Cvor cvor)
         {
             if (cvor.Tip != TipCvora.Konstanta)
                 return;
@@ -15,11 +18,12 @@
         }
     }
 
-    public class SimpleMutation : Mutation
+    public class PointMutation : Mutation
     {
         public override Jedinka Mutiraj(Jedinka jedinka)
         {
             MutirajCvor(jedinka.Korjen);
+            jedinka.FiksirajKonstante();
             return jedinka;
         }
 
@@ -27,7 +31,7 @@
         {
             if (RandomGenerator.GetUniform() < MutationFactor)
             {
-                if (cvor.Tip == TipCvora.Konstanta && RandomGenerator.GetUniform() < 0.5d)
+                if (ConstantMutationEnabled && cvor.Tip == TipCvora.Konstanta && RandomGenerator.GetUniform() < 0.5d )
                     MutirajKonstantu(cvor);
                 else
                     cvor.ZamjeniSaIstimTipom();
@@ -39,5 +43,26 @@
         }
     }
 
-    //todo implementirati još jedan operator mutacije
+    public class HoistMutation : Mutation
+    {
+        public override Jedinka Mutiraj(Jedinka jedinka)
+        {
+            if (RandomGenerator.GetUniform() > MutationFactor) return jedinka;
+
+            var indexCvora = RandomGenerator.GetIntRange(1, jedinka.BrojCvorova());
+            var cvorovi = new List<Cvor> {jedinka.Korjen};
+            Cvor noviKorjen = null;
+            for (int i = 0; cvorovi.Count > 0; i++)
+            {
+                noviKorjen = cvorovi.ElementAt(0);
+                if (i == indexCvora)
+                    break;
+                cvorovi.RemoveAt(0);
+                if (noviKorjen.BrojDjece != 0)
+                    cvorovi.AddRange(noviKorjen.Djeca);
+            }
+            jedinka.Korjen = noviKorjen;
+            return jedinka;
+        }
+    }
 }
