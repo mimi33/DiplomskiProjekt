@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace DiplomskiProjekt.Classes
 {
+    [Serializable]
     public abstract class Mutation
     {
         public bool ConstantMutationEnabled;
@@ -18,6 +20,7 @@ namespace DiplomskiProjekt.Classes
         }
     }
 
+    [Serializable]
     public class PointMutation : Mutation
     {
         public override Jedinka Mutiraj(Jedinka jedinka)
@@ -43,6 +46,7 @@ namespace DiplomskiProjekt.Classes
         }
     }
 
+    [Serializable()]
     public class HoistMutation : Mutation
     {
         public override Jedinka Mutiraj(Jedinka jedinka)

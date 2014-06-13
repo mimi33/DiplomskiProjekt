@@ -6,7 +6,7 @@ mjerenjaPoSatima1 = dict()
 mjerenjaPoSatima2 = dict()
 for sat in range(24): #za svaki sat
 	svaMjerenja1 = dict()
-	for j in range(1, 6): #za svake postavke
+	for j in range(1, 7): #za svake postavke
 		k = ET.parse("./"+str(j)+"/Config.xml").find("Mutation").find("MutFactor").text
 		vrijednosti = []
 		for batchNode in ET.parse("./"+str(j)+"/Logovi/log"+str(sat)+".txt").getroot().findall("Batch"):
@@ -15,7 +15,7 @@ for sat in range(24): #za svaki sat
 		svaMjerenja1[k] = vrijednosti
 
 	svaMjerenja2 = dict()
-	for j in range(6, 11): #za svake postavke
+	for j in range(7, 13): #za svake postavke
 		k = ET.parse("./"+str(j)+"/Config.xml").find("Mutation").find("MutFactor").text
 		vrijednosti = []
 		for batchNode in ET.parse("./"+str(j)+"/Logovi/log"+str(sat)+".txt").getroot().findall("Batch"):
@@ -96,5 +96,5 @@ p5, = plt.plot(x, y, "b:")
 x,y = zip(*sorted(zip(index2, prosjek2)))
 p6, = plt.plot(x, y, "b")
 plt.legend([p3,p6], ["point", "hoist"])
-#plt.savefig("UkupnaSlikaZaOdabirMutacije.png")
+#plt.savefig("UkupnaSlikaZaOdabirMutacije-ljepsa.png")
 plt.show()

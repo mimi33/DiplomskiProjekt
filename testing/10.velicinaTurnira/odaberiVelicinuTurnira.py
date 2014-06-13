@@ -55,5 +55,20 @@ p1, = plt.plot(index, najmanji)
 p2, = plt.plot(index, najveci)
 #x,y = zip(*sorted(zip(index, prosjek)))
 p3, = plt.plot(index, prosjek)
-plt.savefig("UkupnaSlikaZaOdabirAlgoritma.png")
+#plt.savefig("UkupnaSlikaZaOdabirAlgoritma.png")
+
+with open("stats.csv", "w") as dat:
+	dat.write(";"+";".join(map(str, index)))
+	dat.write("\n")
+	dat.write("Max;")
+	dat.write(";".join(map(str, najveci)))
+	dat.write("\n")
+	dat.write("Avg;")
+	dat.write(";".join(map(str, prosjek)))
+	dat.write("\n")
+	dat.write("Min;")
+	dat.write(";".join(map(str, najmanji)))
+	dat.write("\n")
+
+
 plt.show()

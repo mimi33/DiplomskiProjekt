@@ -1,15 +1,16 @@
+# coding=utf-8
 import xml.etree.ElementTree as ET
 import matplotlib.pyplot as plt
 import collections
 import pprint as pp
 
-plotati = True
+plotati = False
 mjerenjaPoSatima = dict()
 #odabirSataDat = open("./Stats/ukupniStats.txt", "w")
 for sat in range(24): #za svaki sat
 	#statsFile = open("./Stats/stats"+str(sat)+".txt", "w")
 	svaMjerenja = dict()
-	for j in range(1, 8): #za svake postavke
+	for j in range(1, 9): #za svake postavke
 		velPop = int(ET.parse("./"+str(j)+"/Config.xml").find("Algorithm").find("PopulationSize").text)
 		# a = int(ET.parse("./"+str(j)+"/Config.xml").find(".//Algorithm/PopulationSize").text)
 		# b = int(ET.parse("./"+str(j)+"/Config.xml").find(".//Algorithm/Termination/Entry[@name='NumberOfGenerations']").text)
@@ -53,8 +54,8 @@ for vp in mjerenjaPoVelPop:
 
 if plotati:
 	plt.figure()
-	plt.xlabel('Velicina Populacije')
-	plt.ylabel('Normirana Greska Jedinke')
+	plt.xlabel('Veličina Populacije')
+	plt.ylabel('Normirana Greška Jedinke')
 	plt.title("Broj evaluacija = 50 000")
 	x,y = zip(*sorted(zip(velicinaPopulacije, najmanji)))
 	plt.plot(x,y)
@@ -65,34 +66,14 @@ if plotati:
 	plt.savefig("Slike/UkupnaSlika.png")
 	plt.show()
 
-# 	statsFile.close()
-# 	if plotati:
-# 		x,y = zip(*sorted(zip(velPop, najmanji)))
-# 		plt.plot(x,y)
-# 		x,y = zip(*sorted(zip(velPop, najveci)))
-# 		plt.plot(x,y)
-# 		x,y = zip(*sorted(zip(velPop, prosjek)))
-# 		plt.plot(x,y)
-# 		plt.savefig("Slike/Slika"+str(sat)+".png")
-# 	a = min(zip(najmanji, velPop))[1]
-# 	b = min(zip(najveci, velPop))[1]
-# 	c = min(zip(prosjek, velPop))[1]
-# 	odabirSataDat.write("\nSat: " + str(sat) + "\n\tavg:"+str(c)+"\n\tmax:"+str(b)+"\n\tmin:"+str(a))
-# 	d = (a + b + c)/3
-# 	da = abs(d - a)
-# 	db = abs(d - b)
-# 	dc = abs(d - c)
-# 	if da < db and da < dc:
-# 		odabirSataDat.write("\n\t\tnajbolje:" + str(a))
-# 		glasanje[a] += 1
-# 	elif db < dc:
-# 		odabirSataDat.write("\n\t\tnajbolje:" + str(b))
-# 		glasanje[b] += 1
-# 	else:
-# 		odabirSataDat.write("\n\t\tnajbolje:" + str(c))
-# 		glasanje[c] += 1
-#
-# if plotati: plt.show()
-# od = collections.OrderedDict(sorted(glasanje.items()))
-# odabirSataDat.write("\nGlasanje: " + pp.pformat(glasanje))
-# odabirSataDat.close()
+with open("Stats/minMaxAvg.csv", "w") as stats:
+	v,y = zip(*sorted(zip(velicinaPopulacije, map(str, najveci))))
+	stats.write(";".join(str(x) for x in v))
+	stats.write('\n')
+	stats.write(";".join(y))
+	stats.write('\n')
+	v,y = zip(*sorted(zip(velicinaPopulacije, map(str, prosjek))))
+	stats.write(";".join(y))
+	stats.write('\n')
+	v,y = zip(*sorted(zip(velicinaPopulacije, map(str, najmanji))))
+	stats.write(";".join(y))

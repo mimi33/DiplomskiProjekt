@@ -26,8 +26,9 @@ namespace DiplomskiProjekt.Classes
 
         // Evaluation
         public const string TrainEvaluatior = "MSE";
-        public const bool CrossValidation = false;
-        public const int FoldSize = 20;
+        public const bool CreateEvaluationSet = false;
+        public const bool RotateFolds = false;
+        public const int NumberOfFolds = 20;
         public const string DataPath = "PoSatima/sat{ID}.txt";
         public const int BrojPrijasnjihMjerenja = 7;
 

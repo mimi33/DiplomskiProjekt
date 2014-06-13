@@ -17,20 +17,28 @@ namespace DiplomskiProjekt.Classes
         Puta,
         [StringValue("/")]
         Djeljeno,
+        [StringValue("max")]
+        Max,
+        [StringValue("min")]
+        Min,
+        [StringValue("exp")]
+        Exponent,
+        [StringValue("sqrt")]
+        Korijen,
         [StringValue("log")]
         Log,
         [StringValue("sin")]
         Sin,
         [StringValue("ifRadniDan")]
-        IfRadniDan
+        IfRadniDan,
+        [StringValue("id")]
+        ID
     };
 
     public class Cvor
     {
         public static List<Cvor> ZavrsniCvorovi;
         public static List<Cvor> FunkcijskiCvorovi;
-        //private static List<Cvor> SviCvorovi
-        //{ get { return ZavrsniCvorovi.Concat(FunkcijskiCvorovi).ToList();}}
 
         public Cvor Roditelj;
         public List<Cvor> Djeca;
@@ -61,10 +69,15 @@ namespace DiplomskiProjekt.Classes
                 case TipFunkcije.Puta:
                 case TipFunkcije.Djeljeno:
                 case TipFunkcije.IfRadniDan:
+                case TipFunkcije.Max:
+                case TipFunkcije.Min:
                     BrojDjece = 2;
                     break;
                 case TipFunkcije.Log:
                 case TipFunkcije.Sin:
+                case TipFunkcije.Exponent:
+                case TipFunkcije.Korijen:
+                case TipFunkcije.ID:
                     BrojDjece = 1;
                     break;
             }
@@ -179,13 +192,18 @@ namespace DiplomskiProjekt.Classes
                 case TipCvora.Funkcija:
                     switch ((TipFunkcije)Vrijednost)
                     {
-                        case TipFunkcije.Log: return (a <= 0) ? 0 : Math.Log(a);
-                        case TipFunkcije.Plus: return a + b;
-                        case TipFunkcije.Minus: return a - b;
-                        case TipFunkcije.Puta: return a * b;
-                        case TipFunkcije.Djeljeno: return (Math.Abs(b) < 1e-5) ? 0 : a / b;
-                        case TipFunkcije.Sin: return Math.Sin(a);
-                        case TipFunkcije.IfRadniDan: return Math.Abs(varijable[0]) < 1e-5 ? a : b;
+                        case TipFunkcije.Log:           return (Math.Abs(a) <= 1e-10) ? 0 : Math.Log(Math.Abs(a));
+                        case TipFunkcije.Plus:          return a + b;
+                        case TipFunkcije.Minus:         return a - b;
+                        case TipFunkcije.Puta:          return a * b;
+                        case TipFunkcije.Djeljeno:      return (Math.Abs(b) < 1e-10) ? 0 : a / b;
+                        case TipFunkcije.Sin:           return Math.Sin(a);
+                        case TipFunkcije.IfRadniDan:    return (Math.Abs(varijable[0]) < 1e-5) ? a : b;
+                        case TipFunkcije.Max:           return Math.Max(a, b);
+                        case TipFunkcije.Min:           return Math.Min(a, b);
+                        case TipFunkcije.Exponent:      return (a > 10) ? Math.Exp(10) : Math.Exp(a);
+                        case TipFunkcije.Korijen:       return Math.Sqrt(Math.Abs(a));
+                        case TipFunkcije.ID:            return a;
                         default: return 0;
                     }
                 case TipCvora.Konstanta:
@@ -219,10 +237,6 @@ namespace DiplomskiProjekt.Classes
                 var novoDijete = zamjenskiCvor.DodajDijeteKaoKopiju(Djeca[i]);
                 Djeca[i].RekurzivnoKopiraj(novoDijete);
             }
-            //foreach (var novodijete in Djeca.Select(zamjenskiCvor.DodajDijeteKaoKopiju))
-            //{
-            //    novodijete.RekurzivnoKopiraj();
-            //}
         }
 
         public void ZamjeniSaIstimTipom() 
@@ -253,11 +267,6 @@ namespace DiplomskiProjekt.Classes
         {
             return RandomGenerator.GetRandomElement(ZavrsniCvorovi).Kopiraj();
         }
-
-        //public static Cvor SlucajniCvor()
-        //{
-        //    return RandomGenerator.GetRandomElement(SviCvorovi).Kopiraj();
-        //}
 
         static Cvor SlucajniFunkcijskiCvor(int brojDjece)
         {

@@ -58,5 +58,16 @@ x,y = zip(*sorted(zip(index, prosjek)))
 plt.plot(x, y, "go")
 pp.pprint(imenaAlgoritama)
 plt.xticks( range(1,5), ('Eliminacijski2', 'Eliminacijski1', 'Generacijski1', 'Generacijski2') )
-plt.savefig("UkupnaSlikaZaOdabirAlgoritma.png")
+#plt.savefig("UkupnaSlikaZaOdabirAlgoritma.png")
 plt.show()
+
+
+with open("stats.csv" ,"w") as dat:
+	dat.write(";".join([imenaAlgoritama[i] for i in index]))
+	dat.write("\n")
+	dat.write(";".join(map(str, najveci)))
+	dat.write("\n")
+	dat.write(";".join(map(str, prosjek)))
+	dat.write("\n")
+	dat.write(";".join(map(str, najmanji)))
+	dat.write("\n")

@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Log>
+  <Batch number="1">
+    <XValidation type="Train" foldNumber="1">
+      <Jedinka greska="2.452" iteracija="5" validationError="2.4358">ifRadniDan + log $0 ifRadniDan - / $5 8,730 5,070 ifRadniDan ifRadniDan 2,250 - 0,550 $3 $8 + + ifRadniDan $8 -4,260 $8 / log -24,390 $5 </Jedinka>
+      <Jedinka greska="2.3619" iteracija="10" validationError="2.3827">+ log / 1,180 3,960 + + ifRadniDan $8 -4,260 $8 / log $0 $5 </Jedinka>
+      <Jedinka greska="2.3047" iteracija="15" validationError="2.3159">+ / id -11,590 + * / $5 8,730 ifRadniDan $4 $7 log $2 + + ifRadniDan 7,810 -4,390 $8 / log $4 $5 </Jedinka>
+      <Jedinka greska="2.2641" iteracija="20" validationError="2.3209">+ + id -8,840 + * / $5 8,730 ifRadniDan $4 $7 log $2 + + ifRadniDan $8 -4,260 $8 / log $4 $5 </Jedinka>
+      <Jedinka greska="2.2387" iteracija="25" validationError="2.2362">+ / id -16,680 + * * $5 $7 ifRadniDan $4 $7 log $0 + + ifRadniDan $7 -4,390 $8 / log $4 $5 </Jedinka>
+      <Jedinka greska="2.2313" iteracija="30" validationError="2.1554">+ / id -21,460 + * * $5 $7 ifRadniDan $4 $7 log $0 + + ifRadniDan $8 -4,390 $8 / log $4 $5 </Jedinka>
+      <Jedinka greska="2.2287" iteracija="35" validationError="2.2171">+ / id -21,460 + * * $5 $7 ifRadniDan $4 $7 log $0 + + ifRadniDan $8 -4,080 $8 / log $4 $5 </Jedinka>
+      <Jedinka greska="2.2286" iteracija="40" validationError="2.2141">+ / id -21,460 + * * $5 $7 ifRadniDan $4 $7 log $0 + + ifRadniDan $7 -4,090 $8 / log $4 $5 </Jedinka>
+      <Jedinka greska="2.2264" iteracija="45" validationError="2.1853">+ / id -23,230 + * * $5 $7 ifRadniDan $4 $7 log $0 + + ifRadniDan 7,810 -4,090 $8 / log $4 $5 </Jedinka>
+      <Jedinka greska="2.2264" iteracija="50" validationError="2.1853">+ / id -23,230 + * * $5 $7 ifRadniDan $6 $7 log $0 + + ifRadniDan -0,430 -4,090 $8 / log $4 $5 </Jedinka>
+    </XValidation>
+  </Batch>
+  <Batch number="2">
+    <XValidation type="Train" foldNumber="1">
+      <Jedinka greska="2.6017" iteracija="5" validationError="2.6001">+ ifRadniDan * / -13,990 7,530 - 15,760 $8 / $6 + 6,350 / - + -6,900 + $8 $2 ifRadniDan * -7,120 7,900 + 8,830 0,310 $6 - + $8 $5 ifRadniDan log 6,140 $6 </Jedinka>
+      <Jedinka greska="2.6017" iteracija="10" validationError="2.6001">+ ifRadniDan * / -13,990 7,530 - 15,760 $8 / $6 + 6,350 / - + -6,900 + $8 $2 ifRadniDan * -7,120 7,900 + 8,830 0,310 $6 - + $8 $5 ifRadniDan log 6,140 $6 </Jedinka>
+      <Jedinka greska="2.372" iteracija="15" validationError="2.3478">+ ifRadniDan log + $8 * id -9,860 + * log $6 $0 ifRadniDan $1 id -12,370 / $6 $5 - + $8 $5 + log 6,140 $6 </Jedinka>
+      <Jedinka greska="2.3702" iteracija="20" validationError="2.3545">+ ifRadniDan / / -13,990 7,530 id ifRadniDan id / + $3 -2,540 3,300 $3 / $6 $5 - + $8 $5 + log 5,580 $6 </Jedinka>
+      <Jedinka greska="2.3699" iteracija="25" validationError="2.3554">+ + / / -13,990 7,530 - + 7,170 + log -10,690 -1,590 $8 / $6 $5 - + $8 $5 + log 5,580 $6 </Jedinka>
+      <Jedinka greska="2.3331" iteracija="30" validationError="2.1941">+ + * / -1,650 ifRadniDan ifRadniDan $7 $6 $0 + id + id -14,090 -1,550 $8 / $6 $5 - + $8 $5 + log 5,580 $6 </Jedinka>
+      <Jedinka greska="2.3331" iteracija="35" validationError="2.1941">+ + * / -1,650 ifRadniDan ifRadniDan $7 $6 $0 + id + id -14,090 -1,550 $8 / $6 $5 - + $8 $5 + log 5,580 $6 </Jedinka>
+      <Jedinka greska="2.3331" iteracija="40" validationError="2.1941">+ + * / -1,650 ifRadniDan ifRadniDan $7 $6 $0 + id + id -14,090 -1,550 $8 / $6 $5 - + $8 $5 + log 5,580 $6 </Jedinka>
+      <Jedinka greska="2.3031" iteracija="45" validationError="2.2146">+ + * / -1,650 ifRadniDan ifRadniDan $7 $8 $0 + id + id -14,090 -1,550 $8 / $6 $5 - + $8 $5 + log -2,810 $6 </Jedinka>
+      <Jedinka greska="2.3031" iteracija="50" validationError="2.2146">+ + * / -1,650 ifRadniDan ifRadniDan $7 $8 $0 + id + id -14,090 -1,550 $8 / $6 $5 - + $8 $5 + log -2,810 $6 </Jedinka>
+    </XValidation>
+  </Batch>
+  <Batch number="3">
+    <XValidation type="Train" foldNumber="1">
+      <Jedinka greska="2.3105" iteracija="5" validationError="2.2039">- ifRadniDan + id $7 5,090 + $8 - id / * ifRadniDan -3,470 15,070 $5 id id 2,230 4,890 log ifRadniDan ifRadniDan ifRadniDan -10,160 2,780 / $2 ifRadniDan log + $4 $7 19,210 -8,360 </Jedinka>
+      <Jedinka greska="2.254" iteracija="10" validationError="2.3738">- ifRadniDan + id $7 10,080 + $8 - id / * ifRadniDan -3,470 15,070 $5 id id 2,230 4,890 log + id -14,440 $7 </Jedinka>
+      <Jedinka greska="2.2322" iteracija="15" validationError="2.3462">- ifRadniDan * id $7 5,090 + $8 - id / * ifRadniDan -3,470 15,070 $5 id id 2,230 5,160 log + ifRadniDan ifRadniDan -10,160 2,780 / $2 * log ifRadniDan 10,180 $7 19,840 -8,360 </Jedinka>
+      <Jedinka greska="2.2148" iteracija="20" validationError="2.3794">- ifRadniDan + id $7 5,090 + $8 - id / * ifRadniDan -3,470 14,540 $5 id id 2,230 5,350 log + ifRadniDan ifRadniDan -10,160 2,780 / $2 * log ifRadniDan $4 $7 19,070 -8,360 </Jedinka>
+      <Jedinka greska="2.2043" iteracija="25" validationError="2.2518">- + / id $7 -13,970 + $8 - id / * ifRadniDan -3,470 15,070 $5 id id 2,230 5,350 log + ifRadniDan ifRadniDan -0,190 2,780 / $2 * log ifRadniDan $4 $7 19,070 -8,360 </Jedinka>
+      <Jedinka greska="2.2043" iteracija="30" validationError="2.2518">- + / id $7 -13,970 + $8 - id / * ifRadniDan -3,470 15,070 $5 id id 2,230 5,350 log + ifRadniDan ifRadniDan -0,190 2,780 / $2 * log ifRadniDan $4 $7 19,070 -8,360 </Jedinka>
+      <Jedinka greska="2.1859" iteracija="35" validationError="2.2689">- + / id $7 -13,970 + $8 - id / * ifRadniDan -3,470 15,070 $5 id id 2,230 5,350 log + ifRadniDan ifRadniDan -0,190 2,780 / $2 * log ifRadniDan $4 $7 19,780 -8,010 </Jedinka>
+      <Jedinka greska="2.1859" iteracija="40" validationError="2.2689">- + / id $7 -13,970 + $8 - id / * ifRadniDan -3,470 15,070 $5 id id 2,230 5,350 log + ifRadniDan ifRadniDan -0,190 2,780 / $2 * log ifRadniDan $4 $7 19,780 -8,010 </Jedinka>
+      <Jedinka greska="2.1859" iteracija="45" validationError="2.2689">- + / id $7 -13,970 + $8 - id / * ifRadniDan -3,470 15,070 $5 id id 2,230 5,350 log + ifRadniDan ifRadniDan -0,190 2,780 / $2 * log ifRadniDan $4 $7 19,780 -8,010 </Jedinka>
+      <Jedinka greska="2.1727" iteracija="50" validationError="2.3297">- ifRadniDan * id $7 5,090 + $8 - id / * ifRadniDan -3,470 15,430 $5 id id 2,110 6,290 log + ifRadniDan ifRadniDan -1,350 $2 / $2 * log ifRadniDan $4 $7 19,820 -8,010 </Jedinka>
+    </XValidation>
+  </Batch>
+  <Batch number="4">
+    <XValidation type="Train" foldNumber="1">
+      <Jedinka greska="2.6803" iteracija="5" validationError="2.6904">- + - $8 id log + ifRadniDan + -15,400 -12,720 / 1,460 $3 -4,240 ifRadniDan / 5,120 $3 0,900 log id - $5 7,560 </Jedinka>
+      <Jedinka greska="2.4017" iteracija="10" validationError="2.3958">+ log * / 14,220 -5,460 / $6 * $6 / / $3 $3 + $5 / -9,600 $3 + + - $5 1,560 $8 / -8,960 11,360 </Jedinka>
+      <Jedinka greska="2.321" iteracija="15" validationError="2.3758">+ log ifRadniDan / 14,220 -5,460 / $6 * $6 / / $8 $3 + $5 / -9,600 $3 + + - $5 3,540 $8 / $2 id $8 </Jedinka>
+      <Jedinka greska="2.2926" iteracija="20" validationError="2.2483">+ log * / 14,220 -4,020 / $0 * 3,660 / ifRadniDan $8 $8 + $5 / 3,700 $1 + + - $5 3,540 $8 / $2 id $8 </Jedinka>
+      <Jedinka greska="2.2926" iteracija="25" validationError="2.2483">+ log * / 14,220 -4,020 / $0 * 3,660 / ifRadniDan $8 $8 + $5 / 3,700 $1 + + - $5 3,540 $8 / $2 id $8 </Jedinka>
+      <Jedinka greska="2.2184" iteracija="30" validationError="2.2257">+ log * / - $7 log ifRadniDan -1,530 -6,060 -5,460 / $0 - $6 / + -18,010 $8 + $5 / -1,870 $4 + + - $5 3,540 $8 / $4 id $8 </Jedinka>
+      <Jedinka greska="2.2069" iteracija="35" validationError="2.3">+ log * / - $7 log ifRadniDan -1,530 -6,060 -4,020 / $0 - $0 / + -18,010 $8 + $5 / -1,870 $8 + + - $5 3,540 $8 / $4 id $8 </Jedinka>
+      <Jedinka greska="2.1454" iteracija="40" validationError="2.3352">+ log * / - $7 log ifRadniDan -1,530 -6,060 -4,020 / $4 - $0 / + $8 $8 + $5 / -1,480 $4 + + - $5 3,540 $8 / $4 id $8 </Jedinka>
+      <Jedinka greska="2.1454" iteracija="45" validationError="2.3352">+ log * / - $7 log ifRadniDan -1,530 -6,060 -4,020 / $4 - $0 / + $8 $8 + $5 / -1,480 $4 + + - $5 3,540 $8 / $4 id $8 </Jedinka>
+      <Jedinka greska="2.1204" iteracija="50" validationError="2.2642">+ log * / - $7 log ifRadniDan 1,740 -2,280 -5,170 / $4 - $0 / + $8 $8 + $5 / -1,480 $2 + + - $5 3,540 $8 / $4 id $8 </Jedinka>
+    </XValidation>
+  </Batch>
+  <Batch number="5">
+    <XValidation type="Train" foldNumber="1">
+      <Jedinka greska="2.6598" iteracija="5" validationError="2.7146">- * id -3,560 id / $6 $4 - / ifRadniDan -1,830 $6 $6 ifRadniDan ifRadniDan id $3 ifRadniDan id $1 -16,420 $8 </Jedinka>
+      <Jedinka greska="2.2636" iteracija="10" validationError="2.1163">- id + id ifRadniDan * log 13,600 - $0 $3 $8 log * * ifRadniDan $3 / -13,850 $0 -22,360 * + 3,940 6,370 $5 * log + 6,920 ifRadniDan id 5,030 id $8 / $8 $0 </Jedinka>
+      <Jedinka greska="2.2345" iteracija="15" validationError="2.1074">- id + $8 log * * ifRadniDan $3 / -13,850 $0 -29,050 * + $7 6,370 $5 * log - 6,920 ifRadniDan id 5,030 id $8 / $8 $0 </Jedinka>
+      <Jedinka greska="2.2205" iteracija="20" validationError="2.0607">- id + $8 log * * ifRadniDan $5 / -18,250 $0 -29,050 * * $7 2,070 $5 * log - 6,920 ifRadniDan id 5,030 id $0 / $8 $0 </Jedinka>
+      <Jedinka greska="2.216" iteracija="25" validationError="2.0633">- id + $8 log * * ifRadniDan $5 / -25,110 $0 -29,050 * + $7 $6 $5 * log - 6,920 ifRadniDan id 5,030 id $0 / $8 $0 </Jedinka>
+      <Jedinka greska="2.1719" iteracija="30" validationError="2.1362">- id + $8 log * * ifRadniDan $3 / -25,110 $0 -34,230 * + $7 -0,710 $5 * log - $4 + id 5,030 id $0 / $8 $0 </Jedinka>
+      <Jedinka greska="2.1492" iteracija="35" validationError="2.1232">- id + $8 log * * ifRadniDan $3 / -25,110 $0 -34,230 * + $7 -0,710 $5 * log - $4 + id 15,170 id $0 / $8 $0 </Jedinka>
+      <Jedinka greska="2.1412" iteracija="40" validationError="2.1248">- id + $8 log * * ifRadniDan $3 / -28,840 $0 -30,510 * + $7 -0,820 $5 * log - $4 + id 15,170 id $0 / $8 $0 </Jedinka>
+      <Jedinka greska="2.1412" iteracija="45" validationError="2.1252">- id + $8 log * * ifRadniDan $3 / -29,110 $0 -30,510 * + $7 -0,820 $5 * log - $4 + id 15,170 id $0 / $8 $0 </Jedinka>
+      <Jedinka greska="2.1412" iteracija="50" validationError="2.125">- id + $8 log * * ifRadniDan $3 / -28,940 $0 -30,510 * + $7 -0,820 $5 * log - $4 + id 15,170 id $0 / $8 $0 </Jedinka>
+    </XValidation>
+  </Batch>
+  <Batch number="6">
+    <XValidation type="Train" foldNumber="1">
+      <Jedinka greska="2.5279" iteracija="5" validationError="2.4836">+ log id * 12,430 $5 + / 29,040 + - ifRadniDan ifRadniDan ifRadniDan 4,650 -5,740 4,930 13,800 id id - 10,740 7,500 ifRadniDan -19,850 -19,170 - $8 / 10,410 + $6 id 5,690 </Jedinka>
+      <Jedinka greska="2.334" iteracija="10" validationError="2.2111">+ log id * - $7 ifRadniDan $0 $1 $5 + + log - -33,690 - 0,570 -19,530 + - ifRadniDan ifRadniDan ifRadniDan 4,650 -5,740 4,930 13,800 id id - 10,740 7,500 ifRadniDan -19,850 -19,170 - $8 / 10,410 + 2,970 log 5,690 </Jedinka>
+      <Jedinka greska="2.334" iteracija="15" validationError="2.2111">+ log id * - $7 ifRadniDan $0 $1 $5 + + log - -33,690 - 0,570 -19,530 + - ifRadniDan ifRadniDan ifRadniDan 4,650 -5,740 4,930 13,800 id id - 10,740 7,500 ifRadniDan -19,850 -19,170 - $8 / 10,410 + 2,970 log 5,690 </Jedinka>
+      <Jedinka greska="2.2614" iteracija="20" validationError="2.2383">+ log id * * $7 - -6,190 $3 $5 ifRadniDan - log + $2 * 0,570 -19,530 log / $2 + 8,860 -7,130 - $8 / 11,100 + 1,950 log 0,590 </Jedinka>
+      <Jedinka greska="2.261" iteracija="25" validationError="2.2457">+ log id * * $7 - 3,920 $3 $5 + - log + $2 ifRadniDan 0,570 -19,530 log + $2 * 8,860 -7,130 - $8 / 11,100 + 1,950 log 0,590 </Jedinka>
+      <Jedinka greska="2.261" iteracija="30" validationError="2.2457">+ log id * * $7 - 3,920 $3 $5 + - log + $2 ifRadniDan 0,570 -19,530 log + $2 * 8,860 -7,130 - $8 / 11,100 + 1,950 log 0,590 </Jedinka>
+      <Jedinka greska="2.261" iteracija="35" validationError="2.2457">+ log id * * $7 - 3,920 $3 $5 + - log + $2 ifRadniDan 0,570 -19,530 log + $2 * 8,860 -7,130 - $8 / 11,100 + 1,950 log 0,590 </Jedinka>
+      <Jedinka greska="2.1716" iteracija="40" validationError="2.2874">+ log id * * $7 - -8,460 $4 $5 + - log + $3 ifRadniDan 0,570 $1 log / $2 + -3,920 $6 - $8 / 11,100 + 1,950 log -0,600 </Jedinka>
+      <Jedinka greska="2.1716" iteracija="45" validationError="2.2874">+ log id * * $7 - -8,460 $4 $5 + - log + $3 ifRadniDan 0,570 $1 log / $2 + -3,920 $6 - $8 / 11,100 + 1,950 log -0,600 </Jedinka>
+      <Jedinka greska="2.1529" iteracija="50" validationError="2.2635">+ log id * * $7 - -10,930 $4 $5 + - log + $0 ifRadniDan 0,570 $0 log / $2 + -3,920 $6 - $8 / 11,410 + 1,950 log -0,600 </Jedinka>
+    </XValidation>
+  </Batch>
+  <Batch number="7">
+    <XValidation type="Train" foldNumber="1">
+      <Jedinka greska="2.3867" iteracija="5" validationError="2.4791">ifRadniDan log log $1 + - $8 -6,970 + 0,330 - log * $1 $5 - 14,270 log log + $0 $8 </Jedinka>
+      <Jedinka greska="2.3867" iteracija="10" validationError="2.4791">ifRadniDan log log $1 + - $8 -6,970 + 0,330 - log * $1 $5 - 14,270 log log + $0 $8 </Jedinka>
+      <Jedinka greska="2.3103" iteracija="15" validationError="2.2075">ifRadniDan log ifRadniDan * -2,110 - * -3,490 / / 3,680 $7 id $6 log / * 11,700 $4 * $0 -4,490 $4 + ifRadniDan $6 ifRadniDan $3 * -2,610 0,460 + id id id - $8 / 25,070 $0 - log * $1 $5 log + $8 * + $6 -12,670 log $2 </Jedinka>
+      <Jedinka greska="2.2905" iteracija="20" validationError="2.2483">ifRadniDan + - $8 + -11,920 log $2 * log + ifRadniDan 19,800 * log -4,720 -6,090 / / - -6,850 $4 + $4 0,580 -6,750 * -2,270 14,940 + - $5 1,690 + id id id - $8 / -6,520 $2 - log * $4 $5 log + $8 * ifRadniDan $6 -10,620 log $2 </Jedinka>
+      <Jedinka greska="2.2905" iteracija="25" validationError="2.2483">ifRadniDan + - $8 + -11,920 log $2 * log + ifRadniDan 19,800 * log -4,720 -6,090 / / - -6,850 $4 + $4 0,580 -6,750 * -2,270 14,940 + - $5 1,690 + id id id - $8 / -6,520 $2 - log * $4 $5 log + $8 * ifRadniDan $6 -10,620 log $2 </Jedinka>
+      <Jedinka greska="2.28" iteracija="30" validationError="2.2344">ifRadniDan ifRadniDan * $8 id - 7,390 ifRadniDan 17,180 id - -5,310 $2 - 25,500 $0 + - $5 1,690 + id id id + $8 / $7 $8 - log * $4 $5 log + $8 * + -1,810 -17,500 log $7 </Jedinka>
+      <Jedinka greska="2.28" iteracija="35" validationError="2.2344">ifRadniDan ifRadniDan * $8 id - 7,390 ifRadniDan 17,180 id - -5,310 $2 - 25,500 $0 + - $5 1,690 + id id id + $8 / $7 $8 - log * $4 $5 log + $8 * + -1,810 -17,500 log $7 </Jedinka>
+      <Jedinka greska="2.2687" iteracija="40" validationError="2.3177">ifRadniDan - * $8 id - 7,390 ifRadniDan 16,130 id + -5,310 $2 - 25,500 + + / $6 * $0 + $4 $6 * id -2,380 -3,230 $8 + - $5 1,990 + id id id + $8 / $7 19,830 - log * $4 $5 log + $8 * + -20,140 -19,150 log $7 </Jedinka>
+      <Jedinka greska="2.2589" iteracija="45" validationError="2.227">ifRadniDan * - $8 id * 7,390 ifRadniDan $2 id - -5,310 $2 - log + ifRadniDan 19,800 * log -4,720 -6,090 $2 + 4,490 $8 + - $5 2,550 + id id id + $8 / $7 19,830 - log * $4 $5 log + $8 * + -19,100 -19,150 log $7 </Jedinka>
+      <Jedinka greska="2.2535" iteracija="50" validationError="2.3863">ifRadniDan - - $8 log * 7,390 ifRadniDan 17,180 id * -5,310 $2 - 25,500 $2 + - $5 2,550 + id id id + $8 / $7 16,610 - log * $4 $5 log + $8 * + -19,100 -19,150 log $3 </Jedinka>
+    </XValidation>
+  </Batch>
+  <Batch number="8">
+    <XValidation type="Train" foldNumber="1">
+      <Jedinka greska="2.661" iteracija="5" validationError="2.7186">+ id + + -8,500 / -1,550 $3 id $8 - - -2,210 -9,760 / 9,260 * $5 + $1 * 4,940 $4 </Jedinka>
+      <Jedinka greska="2.4314" iteracija="10" validationError="2.5553">- + / $4 $8 ifRadniDan $5 $8 / + ifRadniDan 2,620 $8 ifRadniDan -13,210 -1,270 / $1 3,780 </Jedinka>
+      <Jedinka greska="2.3356" iteracija="15" validationError="2.343">- + / / -3,030 $3 7,000 + $5 $8 / + * 2,620 $8 $8 id id ifRadniDan ifRadniDan id 8,550 id -8,520 ifRadniDan 14,160 $0 </Jedinka>
+      <Jedinka greska="2.237" iteracija="20" validationError="2.2281">- + / $4 $8 + $5 $8 / + * 4,980 $8 $8 id id ifRadniDan ifRadniDan id $4 log -8,520 ifRadniDan 14,160 $0 </Jedinka>
+      <Jedinka greska="2.2352" iteracija="25" validationError="2.2309">- + / $4 $8 + $5 $8 / + * 4,980 $8 $8 id id + ifRadniDan id 8,550 id -8,520 + 14,160 $0 </Jedinka>
+      <Jedinka greska="2.2351" iteracija="30" validationError="2.2296">- + / $4 $8 + $5 $8 / + * 4,980 $8 $8 id id + ifRadniDan log 8,550 id -8,520 + 13,120 $0 </Jedinka>
+      <Jedinka greska="2.2351" iteracija="35" validationError="2.2296">- + / $4 $8 + $5 $8 / + * 4,980 $8 $8 id id + ifRadniDan log 8,550 id -8,520 + 13,110 $0 </Jedinka>
+      <Jedinka greska="2.2351" iteracija="40" validationError="2.2296">- + / $4 $8 + $5 $8 / + * 4,980 $8 $8 id id + ifRadniDan log 8,550 id -8,520 + 13,110 $0 </Jedinka>
+      <Jedinka greska="2.2351" iteracija="45" validationError="2.2296">- + / $4 $8 + $5 $8 / + * 4,980 $8 $8 id id + ifRadniDan id 8,550 id -8,520 + 13,110 $0 </Jedinka>
+      <Jedinka greska="2.2351" iteracija="50" validationError="2.2296">- + / $4 $8 + $5 $8 / + * 4,980 $8 $8 id id + ifRadniDan log -2,940 id -8,520 + 13,110 $0 </Jedinka>
+    </XValidation>
+  </Batch>
+  <Batch number="9">
+    <XValidation type="Train" foldNumber="1">
+      <Jedinka greska="2.5841" iteracija="5" validationError="2.6141">+ ifRadniDan - $4 * + $0 ifRadniDan $4 -7,730 $8 - id $5 -7,940 id + $8 -10,400 </Jedinka>
+      <Jedinka greska="2.5841" iteracija="10" validationError="2.6141">+ ifRadniDan - $4 * + $0 ifRadniDan $4 -7,730 $8 - id $5 -7,940 id + $8 -10,400 </Jedinka>
+      <Jedinka greska="2.5841" iteracija="15" validationError="2.6141">+ ifRadniDan - $4 * + $0 ifRadniDan $4 -7,730 $8 - id $5 -7,940 id + $8 -10,400 </Jedinka>
+      <Jedinka greska="2.3046" iteracija="20" validationError="2.8092">+ + ifRadniDan + $2 + + $6 1,180 10,480 -6,580 / / id -1,550 / / * - $8 -8,790 -2,780 10,630 $4 $5 + log $7 + -2,960 $8 </Jedinka>
+      <Jedinka greska="2.3046" iteracija="25" validationError="2.8092">+ + ifRadniDan + $2 + + $6 1,180 10,480 -6,580 / / id -1,550 / / * - $8 -8,790 -2,780 10,630 $4 $5 + log $7 + -2,960 $8 </Jedinka>
+      <Jedinka greska="2.2419" iteracija="30" validationError="2.4464">+ + ifRadniDan -4,130 -6,580 * / -16,500 / - * - $8 -8,790 -1,410 $4 $4 $5 + log $7 + -2,960 $8 </Jedinka>
+      <Jedinka greska="2.2419" iteracija="35" validationError="2.4464">+ + ifRadniDan -4,130 -6,580 * / -16,500 / - * - $8 -8,790 -1,410 $4 $4 $5 + log $7 + -2,960 $8 </Jedinka>
+      <Jedinka greska="2.2383" iteracija="40" validationError="2.4132">+ + ifRadniDan -4,130 -6,740 * / -16,500 / - * - $8 $6 -1,410 $4 $4 $5 + log $7 + -3,110 $8 </Jedinka>
+      <Jedinka greska="2.2383" iteracija="45" validationError="2.4104">+ + ifRadniDan - $1 + + -19,100 -1,230 1,520 -6,740 * / -16,500 / - * - $8 $6 -1,410 $4 $4 $5 + log $7 + -3,120 $8 </Jedinka>
+      <Jedinka greska="2.2381" iteracija="50" validationError="2.4188">+ + ifRadniDan - $0 + + 2,460 1,180 1,520 -6,740 * / -16,500 / - * - $8 $6 -1,380 $4 $4 $5 + log $7 + -3,120 $8 </Jedinka>
+    </XValidation>
+  </Batch>
+  <Batch number="10">
+    <XValidation type="Train" foldNumber="1">
+      <Jedinka greska="2.5566" iteracija="5" validationError="2.573">- + + -10,920 id id 11,160 / $1 + $5 * $5 - ifRadniDan $6 $8 / $0 + $5 -5,780 + - - -15,270 -15,630 $8 ifRadniDan -3,670 $6 </Jedinka>
+      <Jedinka greska="2.5566" iteracija="10" validationError="2.573">- + + -10,920 id id 11,160 / $1 + $5 * $5 - ifRadniDan $6 $8 / $0 + $5 -5,780 + - - -15,270 -15,630 $8 ifRadniDan -3,670 $6 </Jedinka>
+      <Jedinka greska="2.5566" iteracija="15" validationError="2.573">- + + -10,920 id id 11,160 / $1 + $5 * $5 - ifRadniDan $6 $8 / $0 + $5 -5,780 + - - -15,270 -15,630 $8 ifRadniDan -3,670 $6 </Jedinka>
+      <Jedinka greska="2.5234" iteracija="20" validationError="2.5475">+ - id id id $5 - log $8 log 20,010 id id $8 </Jedinka>
+      <Jedinka greska="2.5234" iteracija="25" validationError="2.5475">+ - id id id $5 - log $8 log 20,010 id id $8 </Jedinka>
+      <Jedinka greska="2.5234" iteracija="30" validationError="2.5471">+ - id id id $5 - log $8 log -19,740 id id $8 </Jedinka>
+      <Jedinka greska="2.5234" iteracija="35" validationError="2.5471">+ - id id id $5 - log $8 log -19,740 id id $8 </Jedinka>
+      <Jedinka greska="2.5234" iteracija="40" validationError="2.5471">+ - id id id $5 - log $8 log -19,740 id id $8 </Jedinka>
+      <Jedinka greska="2.5234" iteracija="45" validationError="2.5471">+ - id id id $5 - log $8 log -19,740 id id $8 </Jedinka>
+      <Jedinka greska="2.5234" iteracija="50" validationError="2.5471">+ - id id id $5 - log $8 log -19,740 id id $8 </Jedinka>
+    </XValidation>
+  </Batch>
+</Log>

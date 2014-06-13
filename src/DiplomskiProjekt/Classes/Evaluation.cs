@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -10,11 +11,30 @@ namespace DiplomskiProjekt.Classes
         private Podaci _podaci;
         public int FoldNaKojemuSeUci {get { return _podaci.FoldForTesting; }}
         public int BrojVarijabli {get { return _podaci.PodaciZaUcenje.BrojVarijabli; }}
+        public bool IsCrossValidation;
+        private bool _rotateFolds;
 
-        public void UcitajDataSet(string filepath, bool crx)
+        /// <summary>
+        /// Ucitava podatke iz datoteke kada nema krosvalidacije 
+        /// </summary>
+        /// <param name="filepath">file path do datoteke sa podacima</param>
+        public void UcitajDataSet(string filepath)
         {
-            _podaci = new Podaci(filepath, crx);
+            _podaci = new Podaci(filepath);
             // todo - mijenjati dataset ovisno o potrebama i provjeriti dal je dobro
+        }
+
+        /// <summary>
+        /// Ucitava podatke iz datoteke kada postoji krosvalidacija
+        /// </summary>
+        /// <param name="filepath">file path do datoteke sa podacima</param>
+        /// <param name="noOfFolds">broj foldova koji se koriste kod k-fold validacije</param>
+        /// <param name="rotateFolds">da li ce se rotirati foldovi kao kod k-fold validacije</param>
+        /// <param name="createEvaluationSet">da li ce se kreirati dodatni skup za evaluaciju (ne spada u k-fold)</param>
+        public void UcitajDataSet(string filepath, int noOfFolds, bool rotateFolds, bool createEvaluationSet)
+        {
+            _podaci = new Podaci(filepath, noOfFolds, createEvaluationSet);
+            _rotateFolds = rotateFolds;
         }
 
         private static IEnumerable<double> IzračunajVrijednostiJedinke(Jedinka jedinka, DataSet dataSet)
@@ -33,8 +53,14 @@ namespace DiplomskiProjekt.Classes
 
         public bool SlijedeciPodaciZaUcenje()
         {
-            var gotovo = !_podaci.PromijeniFold();
+            var gotovo = !(_podaci.PromijeniFold() && _rotateFolds);
             return gotovo;
+        }
+
+        public void ResetirajFoldove()
+        {
+            _podaci.FoldForTesting = -1;
+            SlijedeciPodaciZaUcenje();
         }
 
         public double IzracunajGresku(Jedinka jedinka)

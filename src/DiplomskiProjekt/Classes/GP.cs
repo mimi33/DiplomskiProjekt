@@ -6,14 +6,15 @@ using System.Xml.Linq;
 
 namespace DiplomskiProjekt.Classes
 {
+    [Serializable]
     public class GP
     {
         private readonly int _id;
         private string _logPath;
 
         public int Iteracija;
-        private bool _crossvalidation;
         private int _batchNo;
+        private bool _dodatniSkupZaEvaluaciju;
 
         public static bool Zavrsi;
         public static Mutation MutationOp;
@@ -24,6 +25,9 @@ namespace DiplomskiProjekt.Classes
 
         private static int _generationFrequencyLogging;
         
+// ReSharper disable once MemberCanBePrivate.Global
+        public GP(){}
+
         public GP(int id, string configPath)
         {
             _id = id;
@@ -44,7 +48,7 @@ namespace DiplomskiProjekt.Classes
             new XDocument(new XElement("Log")).Save(_logPath);
             if (_batchNo == 1)
             {
-                if (_crossvalidation)
+                if (EvaluationOp.IsCrossValidation)
                     PokreniCrossValidation();
                 else
                     Iteriraj();
@@ -55,7 +59,7 @@ namespace DiplomskiProjekt.Classes
                 {
                     InitNewBatchInLog(batch);
 
-                    if (_crossvalidation)
+                    if (EvaluationOp.IsCrossValidation)
                         PokreniCrossValidation();
                     else
                     {
@@ -73,7 +77,7 @@ namespace DiplomskiProjekt.Classes
             {
                 _algorithm.OdradiGeneraciju();
                 if (Iteracija != 0 && Iteracija % _generationFrequencyLogging == 0)
-                    WriteToLog(_algorithm.NajboljaJedinka, _crossvalidation, Iteracija);
+                    WriteToLog(_algorithm.NajboljaJedinka, EvaluationOp.IsCrossValidation, Iteracija);
 
                 _terminationConditions.ForEach(t => t.ConditionMet(this));
             }
@@ -83,7 +87,7 @@ namespace DiplomskiProjekt.Classes
         {
             var populacijaNajboljih = new Populacija();
             var zavrsenoUcenje = false;
-
+            EvaluationOp.ResetirajFoldove();
             while (!zavrsenoUcenje)
             {
                 _algorithm.ResetirajPopulaciju();
@@ -95,6 +99,10 @@ namespace DiplomskiProjekt.Classes
                 populacijaNajboljih.Add(_algorithm.NajboljaJedinka.Kopiraj());
                 zavrsenoUcenje = EvaluationOp.SlijedeciPodaciZaUcenje();
             }
+
+            if (!_dodatniSkupZaEvaluaciju) 
+                return;
+
             InitNewFoldInLog("Evaluation", -1);
             foreach (var jedinka in populacijaNajboljih)
             {
@@ -121,7 +129,7 @@ namespace DiplomskiProjekt.Classes
             if (log.Root == null)
                 return;
 
-            if (_crossvalidation && _batchNo != 1)
+            if (EvaluationOp.IsCrossValidation && _batchNo != 1)
                 log.Root.Elements("Batch").Last().Elements("XValidation").Last().Add(zapis);
             else if (_batchNo != 1)
                 log.Root.Elements().Last().Add(zapis);
@@ -266,7 +274,6 @@ namespace DiplomskiProjekt.Classes
                     break;
 
                 case NodeType.Evaluation:
-                    Podaci.BrojPodatakaPoFoldu = (int?)djeca.FirstOrDefault(xe => xe.Name == "FoldSize") ?? DefaultValues.FoldSize;
                     Podaci.BrojPrethodnihMjerenja = (int?)djeca.FirstOrDefault(xe => xe.Name == "PreviousLoads") ?? DefaultValues.BrojPrijasnjihMjerenja;
                     att = (string) djeca.FirstOrDefault(xe => xe.Name == "TrainEvaluator") ?? DefaultValues.TrainEvaluatior;
                     switch (att)
@@ -281,20 +288,30 @@ namespace DiplomskiProjekt.Classes
                             EvaluationOp = new MaeEvaluation();
                             break;
                     }
-                    _crossvalidation = (bool?)djeca.FirstOrDefault(xe => xe.Name == "Crossvalidation") ?? DefaultValues.CrossValidation;
                     var potrosnjaPath =
                         ((string) djeca.FirstOrDefault(xe => xe.Name == "DataPath") ?? DefaultValues.DataPath).Replace("{ID}",
                             _id.ToString(CultureInfo.InvariantCulture));
-                    EvaluationOp.UcitajDataSet(potrosnjaPath, _crossvalidation);
+                    var crossValidation = djeca.FirstOrDefault(xe => xe.Name == "Crossvalidation");
+                    EvaluationOp.IsCrossValidation = crossValidation != null;
+                    if (crossValidation != null)
+                    {
+                        var brojFoldova = (int?) crossValidation.Element("NoOfFolds") ?? DefaultValues.NumberOfFolds;
+                        var rotacijaFoldova = (bool?)crossValidation.Element("RotateFolds") ?? DefaultValues.RotateFolds;
+                        _dodatniSkupZaEvaluaciju = (bool?) crossValidation.Element("CreateEvaluationSet") ??
+                                                      DefaultValues.CreateEvaluationSet;
+                        EvaluationOp.UcitajDataSet(potrosnjaPath, brojFoldova, rotacijaFoldova, _dodatniSkupZaEvaluaciju);
+                    }
+                    else
+                    {
+                        EvaluationOp.UcitajDataSet(potrosnjaPath);
+                    }
 
-                    //todo gdje ovo staviti?? ne bi smijelo biti veze na evOp
                     Cvor.ZavrsniCvorovi = new List<Cvor>();
                     for (var i = 0; i < EvaluationOp.BrojVarijabli; i++)
                     {
-                        Cvor.ZavrsniCvorovi.Add(new Cvor(i));
-                        Cvor.ZavrsniCvorovi.Add(new Cvor(false));
+                        Cvor.ZavrsniCvorovi.Add(new Cvor(i));     //varijabla
+                        Cvor.ZavrsniCvorovi.Add(new Cvor(false)); //konstanta
                     }
-                    
                     break;
 
                 case NodeType.Log:

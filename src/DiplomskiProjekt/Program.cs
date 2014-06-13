@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Xml.Serialization;
 
 namespace DiplomskiProjekt
 {
     using Classes;
+    using System.IO;
 
     static class Program
     {
@@ -11,8 +14,6 @@ namespace DiplomskiProjekt
         static void Main(string[] args)
         {
             var configFileName = args.Length == 1 ? args[0] : "Config.xml";
-            Console.Clear();
-            Console.CancelKeyPress += myHandler;
 
             RandomGenerator.SetSeedFromSystemTime();
 
@@ -21,17 +22,10 @@ namespace DiplomskiProjekt
                 Console.WriteLine("=============================================");
                 Console.WriteLine("Sat: " + i);
                 _genProg = new GP(i, configFileName);
+                //var x = new XmlSerializer(_genProg.GetType());
+                //x.Serialize(Console.Out, _genProg);
                 _genProg.Pokreni();
             }
-        }
-
-        /// <summary>
-        /// Služi za ručno postavljanje uvjeta zaustavljanja programa
-        /// </summary>
-        static void myHandler(object sender, ConsoleCancelEventArgs args)
-        {
-            GP.Zavrsi = true;
-            args.Cancel = true;
         }
     }
 }

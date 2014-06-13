@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Log>
+  <Batch number="1">
+    <XValidation type="Train" foldNumber="1">
+      <Jedinka greska="1.9654" iteracija="5" validationError="2.1228">+ + ifRadniDan log -11,990 $8 * $5 log 6,270 log / ifRadniDan 0,310 sin $1 4,680 </Jedinka>
+      <Jedinka greska="1.7966" iteracija="10" validationError="2.2151">+ - ifRadniDan sqrt ifRadniDan / $5 8,270 / $7 22,000 $8 / 3,220 - sqrt / -7,940 ifRadniDan -5,260 -21,380 * $5 ifRadniDan ifRadniDan $4 $2 ifRadniDan -2,440 sqrt 4,750 sin * - 0,310 sin $1 4,680 </Jedinka>
+      <Jedinka greska="1.7482" iteracija="15" validationError="2.3452">+ - ifRadniDan sqrt ifRadniDan / $5 8,270 / $7 10,160 $8 / 3,220 - sqrt / -7,940 ifRadniDan -5,260 -21,380 * $5 ifRadniDan ifRadniDan $4 $2 ifRadniDan 5,000 sqrt 4,750 sin * / 0,310 sin $1 $8 </Jedinka>
+      <Jedinka greska="1.7416" iteracija="20" validationError="2.3514">+ - ifRadniDan sqrt ifRadniDan / $5 8,270 / $7 11,010 $8 / 3,220 - sqrt / -7,940 + -4,650 -21,380 * $5 ifRadniDan / $4 $2 ifRadniDan -2,440 sqrt 5,170 sin * / 0,310 sin $1 $8 </Jedinka>
+      <Jedinka greska="1.7416" iteracija="25" validationError="2.3514">+ - ifRadniDan sqrt ifRadniDan / $5 8,270 / $7 12,580 $8 / 3,220 - sqrt / -7,940 + -4,650 -21,380 * $5 ifRadniDan ifRadniDan $4 $2 ifRadniDan -2,440 sqrt 5,170 sin * / 0,310 sin $1 $8 </Jedinka>
+      <Jedinka greska="1.7415" iteracija="30" validationError="2.3515">+ - ifRadniDan sqrt ifRadniDan - $5 8,270 / 4,630 10,160 $8 / 3,220 - sqrt / -7,940 + -4,650 -21,380 * $5 ifRadniDan ifRadniDan -12,000 $2 ifRadniDan -2,440 sqrt 5,160 sin * / 0,310 sin $1 $8 </Jedinka>
+      <Jedinka greska="1.7415" iteracija="35" validationError="2.3515">+ - ifRadniDan sqrt -11,990 $8 / 3,220 - sqrt / -7,940 + -4,650 -21,380 * $5 ifRadniDan / $4 2,220 ifRadniDan -2,440 sqrt 5,160 sin * / 0,310 sin $1 $8 </Jedinka>
+      <Jedinka greska="1.7415" iteracija="40" validationError="2.3515">+ - ifRadniDan sqrt $8 $8 / 3,220 - sqrt / -7,940 + -4,650 -21,380 * $5 ifRadniDan ifRadniDan $4 $2 ifRadniDan $7 sqrt 5,160 sin * / 0,310 sin $1 $8 </Jedinka>
+      <Jedinka greska="1.7301" iteracija="45" validationError="2.3698">+ - + sin ifRadniDan / $5 8,270 - $7 22,000 $8 / 3,220 - sqrt / -7,940 + -4,650 -21,380 * $5 ifRadniDan ifRadniDan $4 $6 ifRadniDan -2,440 sqrt 5,160 sin * / 0,310 sin $1 $8 </Jedinka>
+      <Jedinka greska="1.7301" iteracija="50" validationError="2.3698">+ - + sin ifRadniDan / $5 8,270 - $7 22,000 $8 / 3,220 - sqrt / -7,940 + -4,650 -21,380 * $5 ifRadniDan ifRadniDan $4 $6 ifRadniDan -2,440 sqrt 5,160 sin * / 0,310 sin $1 $8 </Jedinka>
+    </XValidation>
+  </Batch>
+  <Batch number="2">
+    <XValidation type="Train" foldNumber="1">
+      <Jedinka greska="2.0201" iteracija="5" validationError="2.2385">+ ifRadniDan sqrt $5 / $1 $8 - ifRadniDan sqrt * -17,460 * + - 4,230 -4,660 sin $8 * * -8,660 $8 -3,970 $8 sqrt - sin - sqrt log 14,800 -3,570 sin ifRadniDan $7 -12,460 </Jedinka>
+      <Jedinka greska="2.0201" iteracija="10" validationError="2.2385">+ ifRadniDan sqrt $5 / $1 $8 - ifRadniDan sqrt * -17,460 * + - 4,230 -4,660 sin $8 * * -8,660 $8 -3,970 $8 sqrt - sin - sqrt log 14,800 -3,570 sin ifRadniDan $7 -12,460 </Jedinka>
+      <Jedinka greska="1.7129" iteracija="15" validationError="2.2436">+ / + 8,260 $8 sqrt -1,060 ifRadniDan sqrt 21,610 - -0,350 log log $8 </Jedinka>
+      <Jedinka greska="1.7129" iteracija="20" validationError="2.2436">+ / + 8,260 $8 sqrt -1,060 ifRadniDan sqrt 21,610 - -0,350 log log $8 </Jedinka>
+      <Jedinka greska="1.7005" iteracija="25" validationError="2.2437">+ / + 8,260 $8 sqrt -1,060 + sin $3 - -0,350 log log $8 </Jedinka>
+      <Jedinka greska="1.6806" iteracija="30" validationError="2.1802">+ / + 10,630 $8 sqrt -1,060 + sin $2 - -0,350 sqrt sqrt $4 </Jedinka>
+      <Jedinka greska="1.6806" iteracija="35" validationError="2.1802">+ / + 10,630 $8 sqrt -1,060 + sin $2 - -0,350 sqrt sqrt $4 </Jedinka>
+      <Jedinka greska="1.6783" iteracija="40" validationError="2.1695">+ / + 10,250 $8 sqrt -1,060 + sin $2 - -0,220 sqrt sqrt $4 </Jedinka>
+      <Jedinka greska="1.6783" iteracija="45" validationError="2.1695">+ / + 10,250 $8 sqrt -1,060 + sin $2 - -0,220 sqrt sqrt $4 </Jedinka>
+      <Jedinka greska="1.6783" iteracija="50" validationError="2.1695">+ / + 10,250 $8 sqrt -1,060 + sin $2 - -0,220 sqrt sqrt $4 </Jedinka>
+    </XValidation>
+  </Batch>
+  <Batch number="3">
+    <XValidation type="Train" foldNumber="1">
+      <Jedinka greska="1.9611" iteracija="5" validationError="2.0964">+ + sin -4,060 ifRadniDan $2 $8 - * / $5 3,680 8,240 sqrt -8,520 </Jedinka>
+      <Jedinka greska="1.8583" iteracija="10" validationError="2.1854">+ + ifRadniDan sqrt ifRadniDan $8 log $6 sin + -8,610 - $7 14,290 ifRadniDan $2 $8 - * / $5 3,680 12,460 log -8,520 </Jedinka>
+      <Jedinka greska="1.7997" iteracija="15" validationError="2.14">+ + * sqrt ifRadniDan $8 log $6 sin + -8,610 - $7 14,290 ifRadniDan -7,890 $8 - * / $5 3,170 13,380 sqrt -11,970 </Jedinka>
+      <Jedinka greska="1.7554" iteracija="20" validationError="2.2352">+ + * sqrt + -15,380 sqrt $2 sin + -8,610 - $7 14,290 ifRadniDan $2 $8 - * / $5 3,170 13,380 sqrt -12,310 </Jedinka>
+      <Jedinka greska="1.7554" iteracija="25" validationError="2.2352">+ + * sqrt + -15,380 sqrt $2 sin + -8,610 - $7 14,290 ifRadniDan $2 $8 - * / $5 3,170 13,380 sqrt -12,310 </Jedinka>
+      <Jedinka greska="1.7272" iteracija="30" validationError="2.2548">+ + * sqrt + -15,380 sqrt $2 sin + -8,610 - $7 14,290 ifRadniDan $8 $8 - * / $5 3,170 16,760 sqrt -19,000 </Jedinka>
+      <Jedinka greska="1.7155" iteracija="35" validationError="2.2917">+ + * sqrt + -13,830 sqrt $2 sin + -8,610 - $7 14,290 ifRadniDan $2 $8 - * / $5 3,080 16,760 sqrt -20,420 </Jedinka>
+      <Jedinka greska="1.7115" iteracija="40" validationError="2.2944">+ + * log + -13,830 sqrt $2 sin + -8,610 - $7 14,290 ifRadniDan $2 $8 - * / $5 3,080 16,760 sqrt -21,880 </Jedinka>
+      <Jedinka greska="1.7115" iteracija="45" validationError="2.2931">+ + * log + -13,830 sqrt $2 sin + -8,610 - $7 14,290 ifRadniDan $2 $8 - * / $5 3,080 16,760 sqrt -22,750 </Jedinka>
+      <Jedinka greska="1.7114" iteracija="50" validationError="2.2942">+ + * log + -13,830 sqrt $2 sin + -8,610 - $7 14,290 ifRadniDan -15,800 $8 - * / $5 3,080 16,760 sqrt -21,980 </Jedinka>
+    </XValidation>
+  </Batch>
+  <Batch number="4">
+    <XValidation type="Train" foldNumber="1">
+      <Jedinka greska="1.8601" iteracija="5" validationError="2.3705">+ - ifRadniDan 6,990 $8 ifRadniDan sqrt * + 1,090 $6 - sin 6,290 6,550 -12,540 - / sin ifRadniDan log $6 / $4 -1,980 $7 ifRadniDan * / log -11,410 $5 + sin log 13,750 / -15,550 -4,480 + sqrt $8 sin $1 </Jedinka>
+      <Jedinka greska="1.8601" iteracija="10" validationError="2.3705">+ - ifRadniDan 6,990 $8 ifRadniDan sqrt * + 1,090 $6 - sin 6,290 6,550 -12,540 - / sin ifRadniDan log $6 / $4 -1,980 $7 ifRadniDan * / log -11,410 $5 + sin log 13,750 / -15,550 -4,480 + sqrt $8 sin $1 </Jedinka>
+      <Jedinka greska="1.8601" iteracija="15" validationError="2.3705">+ - ifRadniDan 6,990 $8 ifRadniDan sqrt * + 1,090 $6 - sin 6,290 6,550 -12,540 - / sin ifRadniDan log $6 / $4 -1,980 $7 ifRadniDan * / log -11,410 $5 + sin log 13,750 / -15,550 -4,480 + sqrt $8 sin $1 </Jedinka>
+      <Jedinka greska="1.8601" iteracija="20" validationError="2.3705">+ - ifRadniDan 6,990 $8 ifRadniDan sqrt * + 1,090 $6 - sin 6,290 6,550 -12,540 - / sin ifRadniDan log $6 / $4 -1,980 $7 ifRadniDan * / log -11,410 $5 + sin log 13,750 / -15,550 -4,480 + sqrt $8 sin $1 </Jedinka>
+      <Jedinka greska="1.7588" iteracija="25" validationError="2.4481">+ - sqrt - log 12,010 $6 log + sqrt $8 -11,100 + - $8 / sin $0 $5 + / log $4 ifRadniDan log ifRadniDan $4 sqrt 13,600 - - $4 $8 -5,150 sin + -17,040 sqrt $8 </Jedinka>
+      <Jedinka greska="1.7588" iteracija="30" validationError="2.4481">+ - sqrt - log 12,010 $6 log + sqrt $8 -11,100 + - $8 / sin $0 $5 + / log $4 ifRadniDan log ifRadniDan $4 sqrt 13,600 - - $4 $8 -5,150 sin + -17,040 sqrt $8 </Jedinka>
+      <Jedinka greska="1.6531" iteracija="35" validationError="2.2699">+ - log - log $7 $6 log + sqrt $8 -12,580 + - $8 - sin $0 $5 + / sin -9,690 ifRadniDan sqrt ifRadniDan $4 sqrt $7 / / $4 $8 -5,150 sin + 1,840 sqrt $8 </Jedinka>
+      <Jedinka greska="1.6531" iteracija="40" validationError="2.2699">+ - log - log $7 $6 log + sqrt $8 -12,580 + - $8 - sin $0 $5 + / sin -9,690 ifRadniDan sqrt ifRadniDan $4 sqrt $7 / / $4 $8 -5,150 sin + 1,840 sqrt $8 </Jedinka>
+      <Jedinka greska="1.6178" iteracija="45" validationError="2.2566">+ - log - log $7 $6 log + sqrt $8 -12,580 + - $8 - sin $0 $5 + / sin -9,690 ifRadniDan sin ifRadniDan -17,150 sin 14,400 / / $2 $8 -6,120 sin + -17,040 sqrt $8 </Jedinka>
+      <Jedinka greska="1.6081" iteracija="50" validationError="2.3101">+ - log - log $7 $6 log + sqrt $8 -12,580 + - $8 - sin $0 $5 + / sin -9,690 ifRadniDan sin ifRadniDan $4 sqrt 14,400 / / $2 $8 -8,060 sin + 1,840 sqrt $8 </Jedinka>
+    </XValidation>
+  </Batch>
+  <Batch number="5">
+    <XValidation type="Train" foldNumber="1">
+      <Jedinka greska="4.0121" iteracija="5" validationError="3.3596">+ sqrt + sin $7 -0,910 - + 1,530 log - -2,360 sin sqrt $4 - $7 $8 </Jedinka>
+      <Jedinka greska="1.9776" iteracija="10" validationError="2.1692">+ + sin 11,260 sqrt ifRadniDan log sqrt log $2 $5 + ifRadniDan $3 $5 ifRadniDan $2 $8 </Jedinka>
+      <Jedinka greska="1.958" iteracija="15" validationError="2.1441">+ + sin 11,260 sqrt / sqrt sqrt log $2 $5 + sin * log $3 -6,220 ifRadniDan $6 $8 </Jedinka>
+      <Jedinka greska="1.9494" iteracija="20" validationError="2.1537">+ + sin 11,000 sqrt / sqrt sqrt sqrt $2 $5 + sin * log $3 -5,180 ifRadniDan $6 $8 </Jedinka>
+      <Jedinka greska="1.9485" iteracija="25" validationError="2.1551">+ + sin 11,000 sqrt / sqrt sqrt sqrt $1 $5 + sin * log $3 5,690 ifRadniDan $2 $8 </Jedinka>
+      <Jedinka greska="1.9485" iteracija="30" validationError="2.1551">+ + sin 11,000 sqrt * sqrt sqrt sqrt $1 $5 + sin * log $3 5,690 ifRadniDan $6 $8 </Jedinka>
+      <Jedinka greska="1.9485" iteracija="35" validationError="2.1551">+ + sin 11,000 sqrt / sqrt sqrt sqrt $1 $5 + sin * log $3 5,690 ifRadniDan $6 $8 </Jedinka>
+      <Jedinka greska="1.948" iteracija="40" validationError="2.1503">+ + sin 11,000 sqrt / sqrt sqrt sqrt $1 $5 + sin * log $3 5,700 ifRadniDan $3 $8 </Jedinka>
+      <Jedinka greska="1.948" iteracija="45" validationError="2.1503">+ + sin 11,000 sqrt / sqrt sqrt sqrt $1 $5 + sin * log $3 5,700 ifRadniDan -9,060 $8 </Jedinka>
+      <Jedinka greska="1.948" iteracija="50" validationError="2.1503">+ + sin 11,000 sqrt / sqrt sqrt sqrt $1 $5 + sin * log $3 5,700 ifRadniDan $6 $8 </Jedinka>
+    </XValidation>
+  </Batch>
+  <Batch number="6">
+    <XValidation type="Train" foldNumber="1">
+      <Jedinka greska="26.6109" iteracija="5" validationError="43.9711">- ifRadniDan ifRadniDan 15,620 / $6 $7 + - $4 log $4 3,390 ifRadniDan ifRadniDan + / 11,290 -2,250 - $8 -9,660 ifRadniDan + $7 + $2 - -5,910 -18,200 / -7,640 $3 log 21,300 </Jedinka>
+      <Jedinka greska="2.0403" iteracija="10" validationError="2.2482">ifRadniDan ifRadniDan / 12,270 ifRadniDan $6 $7 ifRadniDan + $6 / sqrt 7,610 - $4 log / 3,670 -9,500 * $8 sqrt sqrt sqrt ifRadniDan -5,040 $1 + * * sin sin log sqrt -3,860 $5 log -12,620 ifRadniDan $4 $8 </Jedinka>
+      <Jedinka greska="1.8427" iteracija="15" validationError="2.2142">+ / ifRadniDan $1 log - * 5,870 $7 + $2 log -5,470 ifRadniDan + $4 / sqrt 7,610 - $4 sqrt ifRadniDan $0 -9,500 - / 3,890 $5 sqrt sqrt sqrt ifRadniDan -5,040 12,770 + * * sin sin log sqrt -3,860 $5 sin -12,620 ifRadniDan $7 $8 </Jedinka>
+      <Jedinka greska="1.8427" iteracija="20" validationError="2.2142">+ / ifRadniDan $1 log - * 5,870 $7 + $2 log -5,470 ifRadniDan + $4 / sqrt 7,610 - $4 sqrt ifRadniDan $0 -9,500 - / 3,890 $5 sqrt sqrt sqrt ifRadniDan -5,040 12,770 + * * sin sin log sqrt -3,860 $5 sin -12,620 ifRadniDan $7 $8 </Jedinka>
+      <Jedinka greska="1.7686" iteracija="25" validationError="2.2515">+ / ifRadniDan $7 log - * 5,870 $7 + $0 sin -5,470 ifRadniDan + $5 / sqrt 7,610 - $4 sqrt ifRadniDan 3,670 -9,500 - * 3,410 $5 sqrt sqrt sqrt - 17,190 12,770 + + * sin sin log sqrt 4,570 -2,230 sin - $3 log ifRadniDan -0,780 $5 ifRadniDan sin / $4 $4 $8 </Jedinka>
+      <Jedinka greska="1.7305" iteracija="30" validationError="2.2204">+ / ifRadniDan $7 log - * 6,590 $7 + $1 log -5,470 ifRadniDan / $4 / sqrt 7,610 - $4 sqrt * 5,860 -9,500 - / 3,410 $5 sin sqrt sqrt ifRadniDan -5,040 12,770 + + * sin sin log log 4,570 -2,230 sin - $3 sqrt ifRadniDan -0,780 $5 ifRadniDan 12,390 $8 </Jedinka>
+      <Jedinka greska="1.7305" iteracija="35" validationError="2.2204">+ / ifRadniDan $7 log - * 6,590 $7 + $1 log -5,470 ifRadniDan / $4 / sqrt 7,610 - $4 sqrt * 5,860 -9,500 - / 3,410 $5 sin sqrt sqrt ifRadniDan -5,040 12,770 + + * sin sin log log 4,570 -2,230 sin - $3 sqrt ifRadniDan -0,780 $5 ifRadniDan 12,390 $8 </Jedinka>
+      <Jedinka greska="1.7122" iteracija="40" validationError="2.2651">+ / ifRadniDan $7 log - * 6,590 $7 + $1 sqrt -9,200 ifRadniDan ifRadniDan $5 / sqrt 3,230 - $4 sqrt ifRadniDan 3,670 -9,500 - / 3,410 $5 sin sqrt log ifRadniDan 17,190 12,770 + + * sqrt log log sqrt 4,570 -1,490 sin - $2 sin ifRadniDan -0,780 $5 ifRadniDan 5,990 $8 </Jedinka>
+      <Jedinka greska="1.6887" iteracija="45" validationError="2.236">+ / ifRadniDan $7 log - * 6,590 $7 + $1 sqrt -12,140 ifRadniDan / $0 - sqrt 3,230 - $4 sqrt ifRadniDan $0 -9,500 - / 3,410 $5 sin sqrt sqrt ifRadniDan 17,190 14,060 + + * sqrt log log sqrt 4,570 -1,490 sin - $2 sqrt ifRadniDan -4,010 $5 + sin * $4 8,800 $8 </Jedinka>
+      <Jedinka greska="1.6641" iteracija="50" validationError="2.2398">+ / ifRadniDan $1 log - * 6,590 $7 + $1 sqrt -12,140 ifRadniDan / $4 - sqrt 3,230 - $4 sqrt ifRadniDan 0,850 -19,240 - / 3,410 $5 sin sqrt sqrt ifRadniDan -1,160 12,770 + + * sqrt log sin sqrt $7 -1,490 sin - $2 sqrt - -0,780 $5 + sin * $4 8,800 $8 </Jedinka>
+    </XValidation>
+  </Batch>
+  <Batch number="7">
+    <XValidation type="Train" foldNumber="1">
+      <Jedinka greska="1.8749" iteracija="5" validationError="2.4409">+ ifRadniDan sqrt $5 + $8 sqrt / $5 / $5 ifRadniDan sqrt 11,410 17,820 * ifRadniDan log $4 sin 9,890 * + $4 3,240 / 12,400 $2 </Jedinka>
+      <Jedinka greska="1.7962" iteracija="10" validationError="2.1879">- + sin $5 + $8 sqrt / $5 / $5 ifRadniDan sqrt 11,410 17,820 sqrt / ifRadniDan sqrt -13,240 * 0,220 + * 11,680 ifRadniDan -3,740 -1,220 sqrt * 5,890 $8 sin + 3,820 2,770 </Jedinka>
+      <Jedinka greska="1.7962" iteracija="15" validationError="2.1879">- + sin $5 + $8 sqrt / $5 / $5 ifRadniDan sqrt 11,410 17,820 sqrt / ifRadniDan sqrt -13,240 * 0,220 + * 11,680 ifRadniDan -3,740 -1,220 sqrt * 5,890 $8 sin + 3,820 2,770 </Jedinka>
+      <Jedinka greska="1.7447" iteracija="20" validationError="2.1954">- + sin $3 + $8 sqrt + $5 / $5 / sqrt $4 17,820 / / - sin log 0,630 + $6 12,760 $2 + / $6 / $2 -1,210 * / $5 * sin * $4 9,950 ifRadniDan * $0 $2 sqrt $1 0,770 </Jedinka>
+      <Jedinka greska="1.7289" iteracija="25" validationError="2.1937">- + sin $3 + $8 sqrt + $5 / $5 / sqrt $4 14,870 / / - sin sin $2 + $6 12,670 $2 + / $6 / $2 -1,210 * / $5 * sin * $4 11,280 ifRadniDan ifRadniDan -5,700 $0 sqrt $1 0,770 </Jedinka>
+      <Jedinka greska="1.7061" iteracija="30" validationError="2.1455">- + sin $2 + $8 sqrt + $5 / $5 / sqrt $4 22,560 / / - log log $7 + $6 12,670 $2 + / $6 / $2 -1,210 * / $5 * sin * $4 11,280 ifRadniDan ifRadniDan $0 $2 sqrt $1 0,770 </Jedinka>
+      <Jedinka greska="1.7048" iteracija="35" validationError="2.1533">- + sin $2 + $8 sqrt + $5 / $5 / sqrt $4 30,990 / / - log log $7 + $6 12,670 $2 + / $6 / $2 -1,240 * / $5 * sin * $4 11,280 ifRadniDan - $0 $2 sqrt $1 0,770 </Jedinka>
+      <Jedinka greska="1.6953" iteracija="40" validationError="2.1165">- + sin $2 + $8 sqrt - $5 / $5 / sqrt $4 35,870 / / - log log $7 + $6 12,670 $2 + / $6 / $2 -1,240 * / $5 * sin * $4 11,280 ifRadniDan - $0 -14,500 sqrt $1 0,620 </Jedinka>
+      <Jedinka greska="1.6922" iteracija="45" validationError="2.1214">- + sin $2 + $8 sqrt - $5 / $5 / sqrt $4 42,100 / / - log log $7 + $6 12,670 $2 + / $6 / $2 -1,240 * / $5 * sin * $4 11,280 ifRadniDan * $0 $2 sqrt $1 0,620 </Jedinka>
+      <Jedinka greska="1.6911" iteracija="50" validationError="2.2598">- + sin $8 + $8 sqrt * $5 / $5 / sqrt $4 35,870 / / - log log $7 + $6 12,670 $2 + / $6 / $2 -1,240 * / $5 * sin * $4 11,280 / - $1 -14,500 sqrt $1 0,620 </Jedinka>
+    </XValidation>
+  </Batch>
+  <Batch number="8">
+    <XValidation type="Train" foldNumber="1">
+      <Jedinka greska="2.4725" iteracija="5" validationError="2.6168">+ log sin $0 - + 1,210 $8 log $0 </Jedinka>
+      <Jedinka greska="1.9182" iteracija="10" validationError="2.0884">+ + - ifRadniDan $3 $8 + 2,150 sqrt / + ifRadniDan 4,090 $6 + $8 5,060 ifRadniDan $2 + -14,490 -0,280 / -12,680 * $6 3,470 + ifRadniDan + $4 / + 10,200 sqrt 9,740 -8,960 $5 ifRadniDan -3,320 7,410 </Jedinka>
+      <Jedinka greska="1.9182" iteracija="15" validationError="2.0884">+ + - ifRadniDan $3 $8 + 2,150 sqrt / + ifRadniDan 4,090 $6 + $8 5,060 ifRadniDan $2 + -14,490 -0,280 / -12,680 * $6 3,470 + ifRadniDan + $4 / + 10,200 sqrt 9,740 -8,960 $5 ifRadniDan -3,320 7,410 </Jedinka>
+      <Jedinka greska="1.7597" iteracija="20" validationError="2.216">- + + ifRadniDan $3 $5 - 2,150 sqrt / + / 4,090 $6 - $8 -1,780 - $7 + -16,960 -0,280 + $8 9,620 sqrt sqrt * sqrt 16,480 * sqrt + 2,760 $8 $8 </Jedinka>
+      <Jedinka greska="1.7368" iteracija="25" validationError="2.2086">- + + ifRadniDan $3 $5 - 2,150 sqrt / + * -2,490 $6 - $8 10,440 - $7 + -18,250 -0,280 + $8 9,620 sqrt sqrt * sqrt 11,330 * sqrt + -3,260 $8 $8 </Jedinka>
+      <Jedinka greska="1.7228" iteracija="30" validationError="2.2223">- + + ifRadniDan $3 $5 - 2,150 sqrt / + * -4,710 18,700 - $8 7,810 - $7 + -16,960 -0,280 + $8 9,620 sqrt sqrt * sqrt 14,620 * sqrt + -6,530 $8 $8 </Jedinka>
+      <Jedinka greska="1.7021" iteracija="35" validationError="2.26">- + + ifRadniDan $3 $5 - 2,150 sqrt / + * -10,640 13,950 - $8 24,130 - $7 + -10,520 -0,280 + $8 9,620 sqrt sqrt * sqrt 12,290 * sqrt + $8 $8 $8 </Jedinka>
+      <Jedinka greska="1.7021" iteracija="40" validationError="2.26">- + + ifRadniDan $3 $5 - 2,150 sqrt / + * -10,640 13,950 - $8 24,130 - $7 + -10,520 -0,280 + $8 9,620 sqrt sqrt * sqrt 12,290 * sqrt + $8 $8 $8 </Jedinka>
+      <Jedinka greska="1.6876" iteracija="45" validationError="2.1345">- + + ifRadniDan $3 $5 - 2,150 sqrt / + * -8,750 18,700 - $8 8,940 - $7 + -10,520 -0,280 + $8 9,620 sqrt sqrt * sqrt 18,840 * sqrt + $7 $4 $8 </Jedinka>
+      <Jedinka greska="1.6855" iteracija="50" validationError="2.1346">- + + ifRadniDan $8 $5 - 2,150 sqrt / + * -8,750 18,700 - $8 10,150 - $7 + -10,520 1,440 + $8 9,620 sqrt sqrt * sqrt 18,840 * sqrt + $7 $4 $8 </Jedinka>
+    </XValidation>
+  </Batch>
+  <Batch number="9">
+    <XValidation type="Train" foldNumber="1">
+      <Jedinka greska="1.9011" iteracija="5" validationError="2.1087">ifRadniDan ifRadniDan sqrt -7,420 ifRadniDan / / ifRadniDan -0,770 + 4,700 1,390 $6 log sqrt sqrt $4 18,470 + sqrt / $5 sqrt sin * $3 $8 * $8 sin log 4,250 </Jedinka>
+      <Jedinka greska="1.9011" iteracija="10" validationError="2.1087">ifRadniDan ifRadniDan sqrt -7,420 ifRadniDan / / ifRadniDan -0,770 + 4,700 1,390 $6 log sqrt sqrt $4 18,470 + sqrt / $5 sqrt sin * $3 $8 * $8 sin log 4,250 </Jedinka>
+      <Jedinka greska="1.7422" iteracija="15" validationError="2.1652">+ log / 5,170 / - $8 log $4 + log $7 * $5 -7,860 + sqrt / -6,650 $5 ifRadniDan $8 - $8 sin + -5,390 $1 </Jedinka>
+      <Jedinka greska="1.7373" iteracija="20" validationError="2.1931">+ log / -4,230 / - $8 log $8 + log $7 * $5 -9,040 + sqrt / -8,580 $5 ifRadniDan + sin $4 $7 - $8 sin + -5,390 $1 </Jedinka>
+      <Jedinka greska="1.7342" iteracija="25" validationError="2.1877">+ log / -4,230 / - $8 sqrt $1 + log $7 * $5 -7,900 + sqrt / -8,580 $5 ifRadniDan + sin $4 $7 - $8 sin + 13,420 $1 </Jedinka>
+      <Jedinka greska="1.7342" iteracija="30" validationError="2.1877">+ log / -4,230 / - $8 sqrt $1 + log $7 * $5 -7,900 + sqrt / -8,580 $5 ifRadniDan + sin $4 $7 - $8 sin + 13,420 $1 </Jedinka>
+      <Jedinka greska="1.732" iteracija="35" validationError="2.1813">+ log / -3,770 / - $8 sqrt $1 + log $7 * $5 -7,900 + sqrt * -8,580 $5 ifRadniDan + sin -10,050 $8 - $8 sin - 8,620 $1 </Jedinka>
+      <Jedinka greska="1.7315" iteracija="40" validationError="2.1793">+ log / -3,770 / - $8 sqrt $1 + log $7 * $5 -7,900 + sqrt * -8,190 $5 ifRadniDan 19,640 - $8 sin - 8,670 $1 </Jedinka>
+      <Jedinka greska="1.7315" iteracija="45" validationError="2.1794">+ log / -3,810 / - $8 sqrt $1 + log $7 * $5 -7,900 + sqrt / -8,190 $5 ifRadniDan 8,610 - $8 sin - 8,670 $1 </Jedinka>
+      <Jedinka greska="1.7314" iteracija="50" validationError="2.1809">+ log / -3,770 / - $8 sqrt $1 + log $7 * $5 -7,850 + sqrt / -8,530 $5 ifRadniDan + sin $4 $8 - $8 sin - 8,670 $1 </Jedinka>
+    </XValidation>
+  </Batch>
+  <Batch number="10">
+    <XValidation type="Train" foldNumber="1">
+      <Jedinka greska="1.9766" iteracija="5" validationError="2.1309">+ ifRadniDan + -3,470 sqrt 2,510 sqrt ifRadniDan $1 $5 - + sin $5 $8 log * log 4,850 log * log * $7 17,240 ifRadniDan * $7 $5 log $4 </Jedinka>
+      <Jedinka greska="1.9124" iteracija="10" validationError="2.202">+ + + -3,470 sqrt 2,510 + $5 sin ifRadniDan $1 * $7 19,730 - + sin $5 $8 sin sqrt + -10,910 $8 </Jedinka>
+      <Jedinka greska="1.8577" iteracija="15" validationError="2.1858">+ + + -3,470 sqrt $6 + $5 sin ifRadniDan 16,110 * $7 19,730 - + sqrt $5 $8 sin * -3,630 log * log * $7 17,240 - * $3 $5 log $4 </Jedinka>
+      <Jedinka greska="1.7991" iteracija="20" validationError="2.1498">+ + + -3,470 sqrt $5 + $5 sin ifRadniDan 16,110 * $5 19,730 - + sqrt $5 $8 sin sqrt + -27,460 $8 </Jedinka>
+      <Jedinka greska="1.7814" iteracija="25" validationError="2.1699">+ + + -3,470 log $5 + $5 log ifRadniDan 16,110 * $5 -10,380 - + sqrt $5 $8 sin sqrt + -32,040 $8 </Jedinka>
+      <Jedinka greska="1.7814" iteracija="30" validationError="2.1699">+ + + -3,470 log $5 + $5 log ifRadniDan 16,110 * $5 -10,380 - + sqrt $5 $8 sin sqrt + -32,040 $8 </Jedinka>
+      <Jedinka greska="1.7657" iteracija="35" validationError="2.1681">+ + + -3,470 sin -0,800 + $5 log ifRadniDan 16,110 * $5 -13,370 - + sqrt $5 $8 sin sqrt + -33,120 $8 </Jedinka>
+      <Jedinka greska="1.7491" iteracija="40" validationError="2.2058">+ + + -4,080 sin -0,800 + $5 log / $3 * $5 -9,080 - + sqrt $5 $8 sin sqrt + -33,060 $8 </Jedinka>
+      <Jedinka greska="1.7463" iteracija="45" validationError="2.2077">+ + + -4,080 sin -1,310 + $5 sqrt ifRadniDan $4 * $5 -15,070 - + sqrt $5 $8 sin sqrt + -32,430 $8 </Jedinka>
+      <Jedinka greska="1.7447" iteracija="50" validationError="2.2097">+ + + -4,340 sin -7,990 + $5 sqrt ifRadniDan 16,110 * $5 -15,070 - + sqrt $5 $8 sin sqrt + -33,060 $8 </Jedinka>
+    </XValidation>
+  </Batch>
+</Log>
