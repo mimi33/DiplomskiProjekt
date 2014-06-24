@@ -5,8 +5,8 @@
     <ignored path="16.dubinaStabla-XV.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/dubinastabla-xv.py" changelist="7577e5ad-8483-45d4-af92-72bb8da1288e" time="1401908510213" ignored="false" />
-    <file path="/fragment.py" changelist="7577e5ad-8483-45d4-af92-72bb8da1288e" time="1402302730730" ignored="false" />
-    <file path="/XV-min.max.py" changelist="7577e5ad-8483-45d4-af92-72bb8da1288e" time="1402307062093" ignored="false" />
+    <file path="/fragment.py" changelist="7577e5ad-8483-45d4-af92-72bb8da1288e" time="1402826041258" ignored="false" />
+    <file path="/XV-min.max.py" changelist="7577e5ad-8483-45d4-af92-72bb8da1288e" time="1402921441974" ignored="false" />
     <file path="$PROJECT_DIR$/../9.odabirAlgoritma/boxplot.py" changelist="7577e5ad-8483-45d4-af92-72bb8da1288e" time="1402494519913" ignored="false" />
     <file path="/boxplot.py" changelist="7577e5ad-8483-45d4-af92-72bb8da1288e" time="1402506215231" ignored="false" />
     <file path="$PROJECT_DIR$/../9.odabirAlgoritma/odaberiAlgoritam.py" changelist="7577e5ad-8483-45d4-af92-72bb8da1288e" time="1402495635276" ignored="false" />
@@ -19,6 +19,13 @@
     <file path="/odaberiKrizanje.py" changelist="7577e5ad-8483-45d4-af92-72bb8da1288e" time="1402506311951" ignored="false" />
     <file path="$PROJECT_DIR$/../15.mape/2/glasanje-xv.py" changelist="7577e5ad-8483-45d4-af92-72bb8da1288e" time="1402667386736" ignored="false" />
     <file path="/glasanje-xv.py" changelist="7577e5ad-8483-45d4-af92-72bb8da1288e" time="1402667230274" ignored="false" />
+    <file path="$PROJECT_DIR$/../17.funkcije-pojedinacno/funkcije.py" changelist="7577e5ad-8483-45d4-af92-72bb8da1288e" time="1402836816960" ignored="false" />
+    <file path="/funkcije.py" changelist="7577e5ad-8483-45d4-af92-72bb8da1288e" time="1402836816960" ignored="false" />
+    <file path="$PROJECT_DIR$/../17.funkcije-pojedinacno/maxlog.py" changelist="7577e5ad-8483-45d4-af92-72bb8da1288e" time="1402837658198" ignored="false" />
+    <file path="/maxlog.py" changelist="7577e5ad-8483-45d4-af92-72bb8da1288e" time="1402837202969" ignored="false" />
+    <file path="$PROJECT_DIR$/../18.dubinaStabla-XV-pokusaj2/XV-min.max.py" changelist="7577e5ad-8483-45d4-af92-72bb8da1288e" time="1402921441974" ignored="false" />
+    <file path="$PROJECT_DIR$/../18.dubinaStabla-XV-pokusaj2/7/Logovi/log16.txt" changelist="7577e5ad-8483-45d4-af92-72bb8da1288e" time="1402834306286" ignored="false" />
+    <file path="$PROJECT_DIR$/../18.dubinaStabla-XV-pokusaj2/10/Logovi/log16.txt" changelist="7577e5ad-8483-45d4-af92-72bb8da1288e" time="1402834306286" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,19 +45,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="dubinastabla-xv.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="dubinastabla-xv.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dubinastabla-xv.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="233" column="49" selection-start="6803" selection-end="6803" vertical-scroll-proportion="0.7746212">
+            <state line="215" column="50" selection-start="6287" selection-end="6287" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="XV-min.max.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="XV-min.max.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/XV-min.max.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="39" selection-start="1192" selection-end="1192" vertical-scroll-proportion="0.0">
+            <state line="67" column="0" selection-start="2225" selection-end="2225" vertical-scroll-proportion="0.030411448">
               <folding>
                 <element signature="e#0#34#0" expanded="true" />
                 <element signature="e#192#839#0" expanded="false" />
@@ -78,10 +85,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1" />
-    <option name="y" value="1" />
-    <option name="width" value="1022" />
-    <option name="height" value="726" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -109,6 +116,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -127,52 +135,19 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="16.dubinaStabla-XV" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="16.dubinaStabla-XV" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="16.dubinaStabla-XV" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="16.dubinaStabla-XV" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Logovi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="web.server" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../15.mape" />
+    <property name="recentsLimit" value="5" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../podaci" />
     <property name="FullScreen" value="false" />
-    <property name="options.splitter.details.proportions" value="0.33492824" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.33492824" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -354,18 +329,18 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1" y="1" width="1022" height="726" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16770834" sideWeight="0.60683763" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12348485" sideWeight="0.6" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37917933" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18560606" sideWeight="0.6" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -435,16 +410,32 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/XV-min.max.py</url>
+          <line>75</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="8" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/1/Logovi/log3.txt">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/dubinastabla-xv.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="60" selection-start="157" selection-end="172" vertical-scroll-proportion="0.0" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/XV-min.max.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="0" selection-start="2225" selection-end="2225" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+            <element signature="e#192#839#0" expanded="false" />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dubinastabla-xv.py">
@@ -456,48 +447,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/1/Config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="29" selection-start="256" selection-end="264" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/1/Logovi/log3.txt">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="60" selection-start="157" selection-end="172" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/1/Logovi/log15.txt">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="39" selection-start="1138" selection-end="1138" vertical-scroll-proportion="-13.038327" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/1/Logovi/log16.txt">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="191" column="75" selection-start="25475" selection-end="25475" vertical-scroll-proportion="0.65156794" />
+        <state line="10" column="29" selection-start="256" selection-end="264" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/1/Config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="29" selection-start="256" selection-end="264" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/1/Logovi/log3.txt">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="60" selection-start="157" selection-end="172" vertical-scroll-proportion="0.0" />
+        <state line="10" column="29" selection-start="256" selection-end="264" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.PyCharm20/system/python_stubs/-762174762/numpy/random/mtrand.py">
@@ -511,27 +466,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/1/Logovi/log0.txt">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state line="144" column="18" selection-start="16368" selection-end="16368" vertical-scroll-proportion="0.64107484" />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/1/Logovi/log5.txt">
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="69" selection-start="7777" selection-end="7827" vertical-scroll-proportion="-0.065259114" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/1/Logovi/log6.txt">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="73" selection-start="4576" selection-end="4631" vertical-scroll-proportion="0.6199616" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/proba2.py">
@@ -539,20 +478,20 @@
         <state line="46" column="0" selection-start="1282" selection-end="1291" vertical-scroll-proportion="0.63506263" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/dubinastabla-xv.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="215" column="50" selection-start="6287" selection-end="6287" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/XV-min.max.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="39" selection-start="1192" selection-end="1192" vertical-scroll-proportion="0.0">
+        <state line="67" column="0" selection-start="2225" selection-end="2225" vertical-scroll-proportion="0.030411448">
           <folding>
             <element signature="e#0#34#0" expanded="true" />
             <element signature="e#192#839#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dubinastabla-xv.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="233" column="49" selection-start="6803" selection-end="6803" vertical-scroll-proportion="0.7746212">
-          <folding />
         </state>
       </provider>
     </entry>

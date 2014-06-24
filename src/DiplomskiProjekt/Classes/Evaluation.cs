@@ -37,7 +37,7 @@ namespace DiplomskiProjekt.Classes
             _rotateFolds = rotateFolds;
         }
 
-        private static IEnumerable<double> IzračunajVrijednostiJedinke(Jedinka jedinka, DataSet dataSet)
+        public static IEnumerable<double> IzračunajVrijednostiJedinke(Jedinka jedinka, DataSet dataSet)
         {
             var rezultatiJedinke = new List<double>(new double[dataSet.BrojZapisa]);
 
@@ -78,12 +78,12 @@ namespace DiplomskiProjekt.Classes
             return jedinka.GreskaJedinke = Greska(IzračunajVrijednostiJedinke(jedinka, _podaci.PodaciZaEvaluaciju), _podaci.PodaciZaEvaluaciju.Rezultati);
         }
 
-        protected abstract double Greska(IEnumerable<double> rezultatiJedinke, IEnumerable<double> rezultatiPodataka);
+        public abstract double Greska(IEnumerable<double> rezultatiJedinke, IEnumerable<double> rezultatiPodataka);
     }
 
     public class MseEvaluation : Evaluation
     {
-        protected override double Greska(IEnumerable<double> rezultatiJedinke, IEnumerable<double> rezultatiPodataka)
+        public override double Greska(IEnumerable<double> rezultatiJedinke, IEnumerable<double> rezultatiPodataka)
         {
             return rezultatiJedinke.Zip(rezultatiPodataka, (o, f) => Math.Pow(o - f, 2)).Average();
         }
@@ -91,7 +91,7 @@ namespace DiplomskiProjekt.Classes
 
     public class MaeEvaluation : Evaluation
     {
-        protected override double Greska(IEnumerable<double> rezultatiJedinke, IEnumerable<double> rezultatiPodataka)
+        public override double Greska(IEnumerable<double> rezultatiJedinke, IEnumerable<double> rezultatiPodataka)
         {
             return rezultatiJedinke.Zip(rezultatiPodataka, (o, f) => Math.Abs(o - f)).Average();
         }
@@ -99,7 +99,7 @@ namespace DiplomskiProjekt.Classes
 
     public class MapeEvaluation : Evaluation
     {
-        protected override double Greska(IEnumerable<double> rezultatiJedinke, IEnumerable<double> rezultatiPodataka)
+        public override double Greska(IEnumerable<double> rezultatiJedinke, IEnumerable<double> rezultatiPodataka)
         {
             return rezultatiJedinke.Zip(rezultatiPodataka, (o, f) => (Math.Abs(1 - o / f))).Average() * 100;
         }

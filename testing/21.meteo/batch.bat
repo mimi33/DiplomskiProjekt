@@ -1,0 +1,12 @@
+cd 5
+DiplomskiProjekt.exe Config.xml
+cd ..
+cd 6
+DiplomskiProjekt.exe Config.xml
+cd ..
+cd 7
+DiplomskiProjekt.exe Config.xml
+cd ..
+cd 8
+DiplomskiProjekt.exe Config.xml
+cd ..

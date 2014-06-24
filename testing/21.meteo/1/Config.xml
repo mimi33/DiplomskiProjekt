@@ -1,0 +1,44 @@
+﻿<GeneticProgramming>
+	<Algorithm name="SteadyStateTournamentTwoOperators">
+		<PopulationSize>500</PopulationSize>
+		<ParamK>3</ParamK>
+		<Termination>
+			<Entry name="NumberOfGenerations">50</Entry>
+		</Termination>
+	</Algorithm>
+	
+	<Tree>
+		<MaxDepth>8</MaxDepth>
+		<MinDepth>3</MinDepth>
+		<FunctionSet>+ - * / ifRadniDan max min</FunctionSet>
+	</Tree>
+
+	<Crossover>
+		<Name>UniformCrossover</Name>
+	</Crossover>
+	
+	<Mutation>
+		<Name>PointMutation</Name>
+		<MutFactor>0.01</MutFactor>
+		<ExtraConstantMutation>true</ExtraConstantMutation>
+	</Mutation>
+	
+	<Evaluation>
+		<TrainEvaluator>MAPE</TrainEvaluator>
+		<Crossvalidation>
+			<RotateFolds>true</RotateFolds>
+			<CreateEvaluationSet>false</CreateEvaluationSet>
+			<NoOfFolds>5</NoOfFolds>
+		</Crossvalidation>
+		<Data>
+			<DataPath>PoSatima/sat{ID}.txt</DataPath>
+			<PreviousLoads>6</PreviousLoads>
+		</Data>
+	</Evaluation>
+	
+	<Log>
+		<GenerationFrequency>5</GenerationFrequency>
+		<FileName>Logovi/log{ID}.txt</FileName>
+		<BatchNo>2</BatchNo>
+	</Log>
+</GeneticProgramming>

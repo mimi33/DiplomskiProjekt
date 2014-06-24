@@ -78,12 +78,12 @@ namespace DiplomskiProjekt.Classes
             for (var i = BrojPrethodnihMjerenja; i < vrijednostiPoSatima.Count - 1; i++)
             {
                 var primjer = new List<double>();
+                primjer.AddRange(vrijednostiPoSatima[i].Take(vrijednostiPoSatima[i].Count - 1));
+                //ne smije biti trenutna potrosnja
+
                 for (var j = 0; j < BrojPrethodnihMjerenja; j++)
                     primjer.Add(vrijednostiPoSatima[i - BrojPrethodnihMjerenja + j].Last());
                         //zadnja vrijednost mora biti potrosnja
-
-                primjer.AddRange(vrijednostiPoSatima[i].Take(vrijednostiPoSatima[i].Count - 1));
-                    //ne smije biti trenutna potrosnja
 
                 if (primjer.Any(double.IsNaN) || double.IsNaN(vrijednostiPoSatima[i].Last()))
                     continue;

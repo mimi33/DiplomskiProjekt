@@ -184,6 +184,10 @@ namespace DiplomskiProjekt.Classes
                     Cvor.FunkcijskiCvorovi =
                         funkcijskiCvorovi.Split(' ').Select(
                             c => new Cvor(StringEnum.GetValueFromDescription<TipFunkcije>(c))).ToList();
+                    if (Cvor.FunkcijskiCvorovi.Count(c => c.BrojDjece == 1) == 1)
+                    {
+                        Cvor.FunkcijskiCvorovi.Add(new Cvor(TipFunkcije.ID));
+                    }
                     break;
 
                 case NodeType.Algorithm:

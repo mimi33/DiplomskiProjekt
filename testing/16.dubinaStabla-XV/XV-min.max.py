@@ -52,13 +52,17 @@ for sat in range(24): #za svaki sat
 			provjera[key] = []
 			ucenje[key] = []
 
+		uzmiSlj = False
 		poSatuUcenje[(minD,maxD)] = []
 		poSatuProvjera[(minD,maxD)] = []
 		for batchNode in ET.parse("./"+str(j)+"/Logovi/log"+str(sat)+".txt").getroot().findall("Batch"):
 			for jedinka in batchNode.find("XValidation").findall("Jedinka"):
-				if int(jedinka.get("iteracija")) == maxGeneracija:
+				if int(jedinka.get("iteracija")) == maxGeneracija or uzmiSlj:
+					if uzmiSlj: uzmiSlj = False
 					greskaucenje = float(jedinka.get("greska"))
 					validacija = float(jedinka.get("validationError"))
+					if validacija > 1000:
+						uzmiSlj = True
 					poSatuUcenje[(minD, maxD)].append(greskaucenje)
 					poSatuProvjera[(minD, maxD)].append(validacija)
 
@@ -67,6 +71,9 @@ for sat in range(24): #za svaki sat
 		zbroj = sum([sum(k) for k in poSatuUcenje.values()]) + sum([sum(k) for k in poSatuProvjera.values()])
 		broj  = sum([len(k) for k in poSatuUcenje.values()]) + sum([len(k) for k in poSatuProvjera.values()])
 		prosjek = zbroj/broj
+		print prosjek
+		if prosjek > 5:
+			print sat
 		for k in poSatuUcenje:
 			for l in range(len(poSatuUcenje[k])):
 				poSatuUcenje[k][l] /= prosjek
@@ -107,14 +114,14 @@ for sat in range(24): #za svaki sat
 plt.figure()
 ax = plt.axes()
 plt.title("min dubina - skup za ucenje vs skup za provjeru")
-plt.hold(True)
+plt.grid(color="gray")
 dubine = sorted(minDubinaUcenje.keys())
 tickPos = [3*i+1.5 for i in range(len(dubine))]
 
 for d in dubine:
 	y = [minDubinaUcenje[d], minDubinaProvjera[d]]
 	i = dubine.index(d)
-	bp = plt.boxplot(y, 0, '', positions = [3*i+1, 3*i+2], widths = 0.6)
+	bp = plt.boxplot(y, positions = [3*i+1, 3*i+2], widths = 0.6)
 	setBoxColors(bp)
 
 plt.xlim(0,12)
@@ -133,14 +140,15 @@ if legend:
 plt.figure()
 ax = plt.axes()
 plt.title("max dubina - skup za ucenje vs skup za provjeru")
-plt.hold(True)
+plt.grid(color="gray")
+
 dubine = sorted(maxDubinaUcenje.keys())
 tickPos = [3*i+1.5 for i in range(len(dubine))]
 
 for d in dubine:
 	y = [maxDubinaUcenje[d], maxDubinaProvjera[d]]
 	i = dubine.index(d)
-	bp = plt.boxplot(y, 0, '', positions = [3*i+1, 3*i+2], widths = 0.6)
+	bp = plt.boxplot(y, positions = [3*i+1, 3*i+2], widths = 0.6)
 	setBoxColors(bp)
 
 plt.xlim(0,12)
@@ -159,12 +167,13 @@ if legend:
 plt.figure()
 ax = plt.axes()
 plt.title("skup za ucenje vs skup za provjeru")
-plt.hold(True)
+plt.grid(color="gray")
+
 dubine = sorted(ucenje.keys())
 for d in dubine:
 	y = [ucenje[d], provjera[d]]
 	i = dubine.index(d)
-	bp = plt.boxplot(y, 0, '', positions = [3*i+1, 3*i+2], widths = 0.6)
+	bp = plt.boxplot(y, positions = [3*i+1, 3*i+2], widths = 0.6)
 	setBoxColors(bp)
 
 plt.xlim(0,3*14)

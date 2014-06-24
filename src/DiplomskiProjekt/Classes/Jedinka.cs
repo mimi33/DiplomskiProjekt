@@ -65,13 +65,13 @@ namespace DiplomskiProjekt.Classes
             return jedinkaKaoXElement;
         }
 
-        public Jedinka Deserijaliziraj(string xmlString)
+        public static Jedinka Deserijaliziraj(string xmlString)
         {
             var el = (string) XElement.Parse(xmlString);
 
             // pretvaranje niza znakova u niz cvorova
             var cvorovi = new List<Cvor>();
-            foreach (var znak in el.Split(' '))
+            foreach (var znak in el.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries))
             {
                 try
                 {
@@ -97,7 +97,7 @@ namespace DiplomskiProjekt.Classes
             }
 
             // gradnja stabla iz niza cvorova
-            var j = new Jedinka {Korjen = cvorovi[0]};
+            var j = new Jedinka (false) {Korjen = cvorovi[0]};
             cvorovi.RemoveAt(0);
             DodajDjecu(j.Korjen, cvorovi);
 
