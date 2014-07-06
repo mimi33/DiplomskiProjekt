@@ -1,6 +1,6 @@
 import os
 
-imeDatoteke = "PodaciZaUsporedbu/prvoPolugodiste"
+imeDatoteke = "PodaciZaUsporedbu/drugoPolugodiste"
 
 podijeliPodatke = True
 

@@ -4,9 +4,9 @@
     <list default="true" id="ef43a82b-479e-4ab3-aafd-b0b8635f3d2c" name="Default" comment="" />
     <ignored path="preracunavanje.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/preracunaj.py" changelist="ef43a82b-479e-4ab3-aafd-b0b8635f3d2c" time="1403635121916" ignored="false" />
+    <file path="/preracunaj.py" changelist="ef43a82b-479e-4ab3-aafd-b0b8635f3d2c" time="1403687152660" ignored="false" />
     <file path="/01_01.DAT" changelist="ef43a82b-479e-4ab3-aafd-b0b8635f3d2c" time="1389626338329" ignored="false" />
-    <file path="/pretvoriU24.py" changelist="ef43a82b-479e-4ab3-aafd-b0b8635f3d2c" time="1403632374270" ignored="false" />
+    <file path="/pretvoriU24.py" changelist="ef43a82b-479e-4ab3-aafd-b0b8635f3d2c" time="1403687587965" ignored="false" />
     <file path="/Dummy.txt" changelist="ef43a82b-479e-4ab3-aafd-b0b8635f3d2c" time="1398190060741" ignored="false" />
     <file path="$PROJECT_DIR$/../testing/19.prijasnjaMjerenja/boxplot.py" changelist="ef43a82b-479e-4ab3-aafd-b0b8635f3d2c" time="1403370941482" ignored="false" />
     <file path="/boxplot.py" changelist="ef43a82b-479e-4ab3-aafd-b0b8635f3d2c" time="1403542318382" ignored="false" />
@@ -20,6 +20,9 @@
     <file path="$PROJECT_DIR$/../testing/21.meteo/batch.bat" changelist="ef43a82b-479e-4ab3-aafd-b0b8635f3d2c" time="1403531360275" ignored="false" />
     <file path="/NE-preracunaj-24h.py" changelist="ef43a82b-479e-4ab3-aafd-b0b8635f3d2c" time="1403630766623" ignored="false" />
     <file path="/preracunajU2Skupa.py" changelist="ef43a82b-479e-4ab3-aafd-b0b8635f3d2c" time="1403635034962" ignored="false" />
+    <file path="/pretvoriU12.py" changelist="ef43a82b-479e-4ab3-aafd-b0b8635f3d2c" time="1403689780605" ignored="false" />
+    <file path="$PROJECT_DIR$/../testing/22.usporedba-FER/greškau24h.py" changelist="ef43a82b-479e-4ab3-aafd-b0b8635f3d2c" time="1403694378291" ignored="false" />
+    <file path="/greškau24h.py" changelist="ef43a82b-479e-4ab3-aafd-b0b8635f3d2c" time="1403694378291" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,28 +42,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ISO-NE.csv" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/iso new england/ISO-NE.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="10" selection-start="25" selection-end="35" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="preracunajU2Skupa.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="preracunajU2Skupa.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/iso new england/preracunajU2Skupa.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="8" selection-start="1124" selection-end="1124" vertical-scroll-proportion="0.31501833">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="preracunaj.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FER/preracunaj.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="127" column="43" selection-start="4407" selection-end="4423" vertical-scroll-proportion="0.0">
+            <state line="29" column="8" selection-start="1124" selection-end="1124" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -69,7 +54,25 @@
       <file leaf-file-name="pretvoriU24.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FER/pretvoriU24.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="37" selection-start="48" selection-end="48" vertical-scroll-proportion="0.0">
+            <state line="2" column="38" selection-start="0" selection-end="590" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pretvoriU12.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/FER/pretvoriU12.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="38" selection-start="49" selection-end="49" vertical-scroll-proportion="0.062271062">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="prvoPolugodiste.csv" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FER/PodaciZaUsporedbu/prvoPolugodiste.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="6" selection-start="52" selection-end="54" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -102,9 +105,10 @@
         <option value="$PROJECT_DIR$/iso new england/ISO-NE.csv" />
         <option value="$PROJECT_DIR$/iso new england/preracunaj.py" />
         <option value="$PROJECT_DIR$/iso new england/NE-preracunaj-24h.py" />
+        <option value="$PROJECT_DIR$/iso new england/preracunajU2Skupa.py" />
         <option value="$PROJECT_DIR$/FER/preracunaj.py" />
         <option value="$PROJECT_DIR$/FER/pretvoriU24.py" />
-        <option value="$PROJECT_DIR$/iso new england/preracunajU2Skupa.py" />
+        <option value="$PROJECT_DIR$/FER/pretvoriU12.py" />
       </list>
     </option>
   </component>
@@ -140,6 +144,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -159,10 +164,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="north am" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NorthAmerican" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -189,21 +190,42 @@
               <option name="myItemId" value="podaci" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FER" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="preracunavanje" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="podaci" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FER" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PodaciZaUsporedbu" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../testing/21.meteo" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../testing/22.usporedba-FER" />
     <property name="FullScreen" value="false" />
-    <property name="options.splitter.details.proportions" value="0.33492824" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.33492824" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -215,7 +237,7 @@
       <PyConsoleSettings />
     </option>
   </component>
-  <component name="RunManager" selected="Python.preracunajU2Skupa">
+  <component name="RunManager" selected="Python.pretvoriU12">
     <configuration default="false" name="preracunajU2Skupa" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -268,6 +290,25 @@
       <module name="preracunavanje" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/FER/pretvoriU24.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="pretvoriU12" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/FER" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="preracunavanje" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/FER/pretvoriU12.py" />
       <option name="PARAMETERS" value="" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
@@ -333,18 +374,19 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
-    <list size="3">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Python.preracunajU2Skupa" />
       <item index="1" class="java.lang.String" itemvalue="Python.preracunaj" />
       <item index="2" class="java.lang.String" itemvalue="Python.pretvoriU24" />
+      <item index="3" class="java.lang.String" itemvalue="Python.pretvoriU12" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.preracunajU2Skupa" />
+        <item index="0" class="java.lang.String" itemvalue="Python.pretvoriU12" />
         <item index="1" class="java.lang.String" itemvalue="Python.pretvoriU24" />
         <item index="2" class="java.lang.String" itemvalue="Python.preracunaj" />
-        <item index="3" class="java.lang.String" itemvalue="Python.pretvoriU24" />
-        <item index="4" class="java.lang.String" itemvalue="Python.preracunaj" />
+        <item index="3" class="java.lang.String" itemvalue="Python.preracunajU2Skupa" />
+        <item index="4" class="java.lang.String" itemvalue="Python.pretvoriU24" />
       </list>
     </recent_temporary>
   </component>
@@ -375,23 +417,23 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32820514" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18106061" sideWeight="0.6700855" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18409091" sideWeight="0.6717949" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39863715" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3079667" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.108333334" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2962121" sideWeight="0.6717949" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991454" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
@@ -462,41 +504,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/FER/PodaciZaUsporedbu/prvoPolugodiste.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="16" selection-start="64" selection-end="64" vertical-scroll-proportion="0.030411448">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FER/pretvoriU24.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="37" selection-start="48" selection-end="48" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/iso new england/ISO-NE.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="10" selection-start="25" selection-end="35" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/iso new england/PoSatima/sat5.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/iso new england/PoSatima/sat3.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/iso new england/skupZaProvjeru.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="19" selection-start="298" selection-end="298" vertical-scroll-proportion="0.39534885">
@@ -506,35 +513,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/iso new england/PoSatima/sat1.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/iso new england/Eval/mjesec1.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="217" column="9" selection-start="4216" selection-end="4216" vertical-scroll-proportion="-4.9606442">
-          <folding />
-        </state>
+        <state line="217" column="9" selection-start="4216" selection-end="4216" vertical-scroll-proportion="-4.9606442" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/iso new england/PoSatima/sat0.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="16" selection-start="128" selection-end="144" vertical-scroll-proportion="0.18959108">
-          <folding />
-        </state>
+        <state line="6" column="16" selection-start="128" selection-end="144" vertical-scroll-proportion="0.18959108" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/FER/preracunaj.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="127" column="43" selection-start="4407" selection-end="4423" vertical-scroll-proportion="0.0">
+        <state line="4" column="47" selection-start="131" selection-end="131" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/iso new england/preracunajU2Skupa.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="8" selection-start="1124" selection-end="1124" vertical-scroll-proportion="0.31501833">
+        <state line="29" column="8" selection-start="1124" selection-end="1124" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FER/pretvoriU24.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="38" selection-start="0" selection-end="590" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FER/PodaciZaUsporedbu/prvoPolugodiste.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="6" selection-start="52" selection-end="54" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FER/pretvoriU12.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="38" selection-start="49" selection-end="49" vertical-scroll-proportion="0.062271062">
           <folding />
         </state>
       </provider>

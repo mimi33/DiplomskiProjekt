@@ -145,7 +145,7 @@ namespace Evaluiraj
                         if (double.IsNaN(srednjaGreska))
                             srednjaGreska = 0;
 
-                        var r = string.Join(";", podaci) + ";" + srednjaGreska.ToString(CultureInfo.InvariantCulture);
+                        var r = string.Join(";", podaci.ConvertAll(x => x.ToString(CultureInfo.InvariantCulture))) + ";" + srednjaGreska.ToString(CultureInfo.InvariantCulture);
                         output.WriteLine(r);
                         stvarnaPotrosnja.Add(rezultat);
                         predvidjenaPotrosnja.Add(srednjaGreska);

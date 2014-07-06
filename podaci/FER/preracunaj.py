@@ -2,7 +2,7 @@
 
 gg = 2011
 podaci = dict() # key je hhddmmyyyy, nema vodecih nula nego su praznine
-fileKonacni = open("PodaciZaUsporedbu/drugoPolugodiste.csv", "w")
+fileKonacni = open("PodaciZaUsporedbu/sviPodaci.csv", "w")
 fileKonacni.write("Sat;Praznik;Mjesec;PrijasnjaPotrosnja;Potrosnja\n")
 fileVrijeme = open("ZGM_satni.txt", "r").readlines()
 fileVrijeme.pop(0)
@@ -14,12 +14,12 @@ for line in fileVrijeme:
 						  float(line[27:30]) / 100, #vlaznost
 						  float(line[31:36]) / 10]  #tlak
 
-danUTjednu = 7 # 26.12.2010 i 26.6.2011 je nedjelja!
+danUTjednu = 6 # 1.1.2010 i 1.7.2011 je subota!
 # praznici u 2011
 praznici = [[1, 1], [6, 1], [24, 4], [25, 4], [1, 5], [22, 6], [23, 6],
 			[25, 6], [05, 8], [15, 8], [8, 10], [1, 11], [25, 12], [26, 12]]
 podaciZaPrijasnjiDan = None
-for mm in range(7,13):
+for mm in range(1,13):
 	brojDana = 31
 	if mm in [4, 6, 9, 11]:
 		brojDana = 30
@@ -127,6 +127,8 @@ for mm in range(7,13):
 				tlak = podaci[key][2]
 				fileKonacni.write(";".join(str(x) for x in [hh, praznik, mm, potrosnjaProsliSat, potrosnja]) + "\n")
 
+			if dd == 17 and mm == 11:
+				danUTjednu -= 1
 			danUTjednu = danUTjednu % 7 + 1
 			podaciZaPrijasnjiDan = podaciPoSatu
 
